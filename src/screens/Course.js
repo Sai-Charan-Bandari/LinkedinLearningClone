@@ -2,6 +2,7 @@ import { StyleSheet, Text, View,TouchableOpacity, FlatList } from 'react-native'
 import React, { useState } from 'react'
 
 const Course = (props) => {
+  
     const [menu,setMenu]=useState(1)
     // 1:// overview
     // 2:// contents

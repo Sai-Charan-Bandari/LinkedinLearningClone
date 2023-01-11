@@ -43,7 +43,7 @@ const Home = () => {
     {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
   return (
     <View>
-      <ScrollView>
+      <ScrollView >
       <Slider arr={newCoursesArr} />
       <List arr={topPicksArr} showSeeAll={false} heading={'Top Picks for BSC'}></List>
       <List arr={bcozOfSkillsUFollowArr} showSeeAll={false} heading={'Because of skills you follow'}></List>

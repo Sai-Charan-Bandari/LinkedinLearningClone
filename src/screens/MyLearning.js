@@ -23,7 +23,7 @@ const MyLearning = (props) => {
 
             <TouchableOpacity onPress={()=>props.navigation.navigate('Profile')} style={styles.top}> 
             {/* icon profile */}
-            <Image style={[styles.icon,{marginRight:20,marginLeft:10}]} source={{uri:'https://cdn-icons-png.flaticon.com/128/3177/3177440.png'}}></Image>
+            <Image style={[styles.icon,{marginRight:20,marginLeft:10,borderWidth:3,borderColor:'skyblue',borderRadius:50}]} source={{uri:'https://cdn-icons-png.flaticon.com/128/3177/3177440.png'}}></Image>
             <View>
                 <Text>BSC</Text>
                 <Text>7 skills</Text>
@@ -39,12 +39,15 @@ const MyLearning = (props) => {
             </TouchableOpacity>
             </View>
 
-            <View style={styles.container}>
+            <View style={[styles.container,{marginBottom:25}]}>
                 {/* Circular progress bar */}
+               <View style={{margin:10,borderWidth:1,paddingTop:10,borderRadius:50,height:80,width:80}}>
+                <Text style={{fontSize:17,fontWeight:'500',marginLeft:6,borderWidth:1,paddingTop:20,paddingLeft:10,borderRadius:50,height:65,width:65}}>0/30</Text>
+               </View>
                 <View>
-                    <Text>Jan 9 to Jan 15</Text>
+                    <Text style={{fontSize:13,fontWeight:'300',marginBottom:5}}>Jan 9 to Jan 15</Text>
                     <Text>You've got this! Start learning to reach your goal.</Text>
-                    <Text>Last week: 74 minutes</Text>
+                    <Text style={{fontSize:13,fontWeight:'300',marginTop:5}}>Last week: 74 minutes</Text>
                 </View>
             </View>
 
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         marginTop:10,
-        marginBottom:10
+        marginBottom:20
     },
     container:{
         // borderColor:'black',

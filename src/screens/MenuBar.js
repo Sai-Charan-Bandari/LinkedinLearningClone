@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         borderTopWidth:1,
+        borderColor:'lightblue',
         
     },
     option:{
