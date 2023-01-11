@@ -23,13 +23,13 @@ const MyLearning = (props) => {
 
             <TouchableOpacity onPress={()=>props.navigation.navigate('Profile')} style={styles.top}> 
             {/* icon profile */}
-            <Image style={{height:50,width:50}} source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU'}}></Image>
+            <Image style={[styles.icon,{marginRight:20,marginLeft:10}]} source={{uri:'https://cdn-icons-png.flaticon.com/128/3177/3177440.png'}}></Image>
             <View>
                 <Text>BSC</Text>
                 <Text>7 skills</Text>
             </View>
                 {/* icon */}
-                <Text> ]]] </Text>
+                <Image style={[styles.icon,{marginLeft:230}]} source={{uri:"https://cdn-icons-png.flaticon.com/128/2989/2989988.png"}}></Image>
             </TouchableOpacity>
        
             <View style={styles.container}>
@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
     top:{
         display:'flex',
         flexDirection:'row',
-
+        marginTop:10,
+        marginBottom:10
     },
     container:{
         // borderColor:'black',
@@ -86,5 +87,6 @@ const styles = StyleSheet.create({
         // borderColor:'black',
         // borderWidth:2
         
-    }
+    },
+    icon:{height:40,width:40}
 })

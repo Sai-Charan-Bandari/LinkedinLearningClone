@@ -8,20 +8,20 @@ const MenuBar = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.option} onPress={()=>navigation.navigate('Home')}>
-        {/* <Image style={{width:20,height:20}} source={{uri:}} /> */}
+        <Image style={{width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/263/263115.png"}} />
         
         <Text>Home</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={()=>navigation.navigate('Topics')}>
-        {/* <Image style={{width:20,height:20}} source={{uri:}} /> */}
+        <Image style={{width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/6583/6583140.png"}} />
         <Text>Topics</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={()=>navigation.navigate('Notifications')}>
-        {/* <Image style={{width:20,height:20}} source={{uri:}} /> */}
+        <Image style={{width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/3602/3602145.png"}} />
         <Text>Notifications</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={()=>navigation.navigate('MyLearning')}>
-        {/* <Image style={{width:20,height:20}} source={{uri:}} /> */}
+        <Image style={{width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/9283/9283030.png"}} />
         <Text>My Learning</Text>
       </TouchableOpacity>
     </View>
@@ -33,7 +33,9 @@ export default MenuBar
 const styles = StyleSheet.create({
     container:{
         display:'flex',
-        flexDirection:'row'
+        flexDirection:'row',
+        borderTopWidth:1,
+        
     },
     option:{
         margin:10,
