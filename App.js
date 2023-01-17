@@ -19,20 +19,25 @@ export default function App() {
 
   // NavigationContainer tags did not work if i enclosed them within View tags.Hence i removed outer View tags
   return (
+    <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name='Home' component={Home}/>
-          <Stack.Screen name='MyLearning' component={MyLearning}/>
-          <Stack.Screen name='Course' component={Course}/>
+        <Stack.Navigator initialRouteName='Home' screenOptions>
+        {/* <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}> */}
+          <Stack.Screen name='Home' component={Home} />
+          <Stack.Screen name='MyLearning' component={MyLearning} initialParams={{setShowMenu:setShowMenu}}/>
+          <Stack.Screen name='Course' component={Course} initialParams={{setShowMenu:setShowMenu}}/>
           <Stack.Screen name='Topics' component={Topics}/>
           <Stack.Screen name='Notifications' component={Notifications}/>
           <Stack.Screen name='Profile' component={Profile}/>
         </Stack.Navigator>
         {showMenu && <MenuBar />}
       </NavigationContainer>
+      {/* MenuBar cannot be placed outside NavigationContainer bcoz it will not have access to screens/routes */}
+    </>
    
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

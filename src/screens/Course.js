@@ -1,18 +1,55 @@
-import { StyleSheet, Text, View,TouchableOpacity, FlatList } from 'react-native'
-import React, { useState } from 'react'
+import { StyleSheet, Text, View,TouchableOpacity, FlatList ,Button} from 'react-native'
+import React, { useState ,useEffect} from 'react'
+import { useNavigation } from '@react-navigation/native';
+import { Video, AVPlaybackStatus } from 'expo-av';
+import { useRoute } from '@react-navigation/native';
+// const data=useRoute().params //same as useParams in react
 
 const Course = (props) => {
+  const nav=useNavigation()
+  //when i kept this statement within useEffect ..it didnt work indicating that the render occurred before the useEffect was called
+  const data=props.route.params.data
+
+  useEffect(()=>{
+    props.route.params.setShowMenu(false);
+  },[])
   
     const [menu,setMenu]=useState(1)
     // 1:// overview
     // 2:// contents
     // 3:// q+a
     
-    const data=props.route.params.data
-    console.log(data)
   return (
     <View>
+      {/* this button must be clicked to go back and also to setShowMenu to true */}
+      <Button title="go back" onPress={()=>{
+        props.route.params.setShowMenu(true);
+        nav.goBack()}}></Button>
+
         {/* Video */}
+
+        {/* <Video
+        ref={video}
+        style={{height:1000,width:1000}}
+        source={{
+          uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
+        }}
+        useNativeControls
+        resizeMode="contain"
+        isLooping
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
+      />
+      <View style={styles.buttons}>
+        <Button
+          title={status.isPlaying ? 'Pause' : 'Play'}
+          onPress={() =>
+            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
+          }
+        />
+      </View> */}
+
+        {/*End of Video tags */}
+
 
       <Text>{data.name}</Text>
       <View>

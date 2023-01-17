@@ -15,6 +15,7 @@ const Slider=(props)=>
 </View>
 
 const Home = () => {
+
     let topPicksArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
     {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
     {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]

@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View ,ScrollView,TouchableOpacity,Image} from 'react-native'
 import React from 'react'
 import List from './List'
+import { useEffect } from 'react'
 
 const MyLearning = (props) => {
 
