@@ -9,7 +9,6 @@ const MenuBar = () => {
     <View style={styles.container}>
       <TouchableOpacity style={styles.option} onPress={()=>navigation.navigate('Home')}>
         <Image style={{width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/263/263115.png"}} />
-        
         <Text>Home</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.option} onPress={()=>navigation.navigate('Topics')}>

@@ -20,15 +20,17 @@ export default function App() {
   // NavigationContainer tags did not work if i enclosed them within View tags.Hence i removed outer View tags
   return (
     <>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName='Home' screenOptions>
-        {/* <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}> */}
+      <NavigationContainer >
+        {/* as i have removed the default navigation header , i used this extra view to create some space at the top */}
+        <View style={{marginTop:30}}></View>
+        {/* <Stack.Navigator initialRouteName='Home' > */}
+        <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}} >
           <Stack.Screen name='Home' component={Home} />
-          <Stack.Screen name='MyLearning' component={MyLearning} initialParams={{setShowMenu:setShowMenu}}/>
+          <Stack.Screen name='MyLearning' component={MyLearning} />
           <Stack.Screen name='Course' component={Course} initialParams={{setShowMenu:setShowMenu}}/>
           <Stack.Screen name='Topics' component={Topics}/>
           <Stack.Screen name='Notifications' component={Notifications}/>
-          <Stack.Screen name='Profile' component={Profile}/>
+          <Stack.Screen name='Profile' component={Profile} initialParams={{setShowMenu:setShowMenu}}/>
         </Stack.Navigator>
         {showMenu && <MenuBar />}
       </NavigationContainer>
