@@ -2,20 +2,22 @@ import { StyleSheet, Text, View ,Image,TouchableOpacity,FlatList,Button} from 'r
 import React,{useEffect,useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 import EditSkills from './EditSkills'
+import VerticalList from './VerticalList'
 
-const skillsArr=['Personal Development', 'Communication', 'Career Development', 'Cloud Computing', 'Mobile Application Development', 'Animation', 'Web Development']
 
 const Profile = (props) => {
   useEffect(()=>{
     props.route.params.setShowMenu(false);
   },[])
   const [editPage, setEditPage] = useState(false)
+  const [coursesListPage, setCoursesListPage] = useState('NULL')
+
   const nav=useNavigation()
   
+  const [skillsArr, setSkillsArr] = useState(['Personal Development', 'Communication', 'Career Development', 'Cloud Computing', 'Mobile Application Development', 'Animation', 'Web Development'])
+
+  if(coursesListPage==='NULL' && editPage==false){
   return (
-  <View>
-    {!editPage
-    ?
     <View style={{alignItems:'center'}}>
 
         <Button title="go back" onPress={()=>{props.route.params.setShowMenu(true);nav.goBack()}}></Button>
@@ -29,8 +31,8 @@ const Profile = (props) => {
       <View style={{borderTopWidth:2,borderBottomWidth:2 ,borderColor:'black'}}>
         <View style={styles.container}>
         <Text>Skills you're interested in</Text>
-        <TouchableOpacity style={{marginLeft:'30%'}}>
-        <Text>EDIT</Text>
+        <TouchableOpacity style={{marginLeft:'30%'}} onPress={()=>setEditPage(true)}>
+        <Text style={{color:'blue'}}>EDIT</Text>
         </TouchableOpacity>
         </View>
       <Text>
@@ -39,17 +41,26 @@ const Profile = (props) => {
       </View>
 
       <FlatList data={skillsArr} renderItem={(ele)=>
-      <TouchableOpacity style={{borderColor:'lightgrey',borderBottomWidth:1}} onPress={()=>setEditPage(true)}>
+      <TouchableOpacity style={{borderColor:'lightgrey',borderBottomWidth:1}} onPress={()=>setCoursesListPage(ele.item)}>
       <Text>{ele.item}</Text>
       </TouchableOpacity>
       }></FlatList>
     </View>
-  
-    :
-    <EditSkills setEditPage={setEditPage}></EditSkills>
-      }
-  </View>
   )
+}
+else if(editPage){
+return(
+<EditSkills setEditPage={setEditPage} skillsArr={skillsArr} setSkillsArr={setSkillsArr}></EditSkills>
+)
+}else{
+  return(
+    <View>
+      <Button title="go back" onPress={() => {setCoursesListPage("NULL") }}></Button>
+      {/* menu to filter list */}
+      <VerticalList coursesType={coursesListPage} />
+    </View>
+  )
+}
 }
 
 export default Profile

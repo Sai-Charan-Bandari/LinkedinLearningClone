@@ -16,7 +16,9 @@ const List = (props) => {
             </TouchableOpacity>}
       </View>
         <FlatList horizontal showsHorizontalScrollIndicator={false} data={props.arr} renderItem={(ele)=>
-            <TouchableOpacity style={{margin:20,height:150,width:250}}  onPress={()=>navigtion.navigate('Course',{data:ele.item})}>
+            <TouchableOpacity style={{margin:20,height:150,width:250}}  onPress={()=>
+                // here we can also use props.navigation.navigate
+            navigtion.navigate('Course',{data:ele.item})}>
                 <Image style={{height:'100%',width:'100%'}} source={{uri:ele.item.image}}></Image>
                 <Text>COURSE</Text>
                 <Text style={{width:'100%'}}>{ele.item.name}</Text>
@@ -48,7 +50,8 @@ heading:{
     // borderWidth:2,
 },
 seeall:{
-    marginLeft:180,
+    
+    marginLeft:'auto',
     // borderColor:'black',
     // borderWidth:2
     

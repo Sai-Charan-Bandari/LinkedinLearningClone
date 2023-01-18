@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View ,ScrollView,FlatList,TouchableOpacity,Image,ImageBackground} from 'react-native'
 import React from 'react'
 import List from './List'
+import {topPicksArr,bcozOfSkillsUFollowArr,thisWeeksTopCoursesArr,newReleasesArr,popularOnLinkedinLearningArr,mostLikedOnLinkedinLearningArr,relatedCoursesArr,newCoursesArr} from '../data/Arrays'
 
 const Slider=(props)=>
 <View style={{backgroundColor:'lightblue'}}>
@@ -14,34 +15,8 @@ const Slider=(props)=>
         }/>
 </View>
 
-const Home = () => {
-
-    let topPicksArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
-    let bcozOfSkillsUFollowArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
-    let thisWeeksTopCoursesArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
-    let newReleasesArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
-    let popularOnLinkedinLearningArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
-    let mostLikedOnLinkedinLearningArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
-    let relatedCoursesArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
+const Home = () => { 
     
-    //this arr is for top component (Slider)
-    let newCoursesArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
   return (
     <View>
       <ScrollView >

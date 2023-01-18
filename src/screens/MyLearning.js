@@ -3,20 +3,8 @@ import React from 'react'
 import List from './List'
 import { useEffect } from 'react'
 
+import {downloadsArr,inProgressArr,savedArr,learningHistoryArr} from '../data/Arrays'
 const MyLearning = (props) => {
-
-      let downloadsArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
-    let inProgressArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
-    let savedArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
-    let learningHistoryArr=[{image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'React'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'JavaScript js jsx labodibo labodibo'},
-    {image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpE7yPsVhHzrfLmZu3AkmmR4O7axiuNsllxQ&usqp=CAU' , name:'Angular'}]
 
     return (
     <View>

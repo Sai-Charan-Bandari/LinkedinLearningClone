@@ -3,6 +3,8 @@ import React, { useState ,useEffect} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { Video, AVPlaybackStatus } from 'expo-av';
 import { useRoute } from '@react-navigation/native';
+import Contents from './Contents';
+import Overview from './Overview';
 // const data=useRoute().params //same as useParams in react
 
 // NOTE: Whenever we enter Course comp we setShowMenu to false and whenever we go back from this Screen we will set it back to true.
@@ -32,6 +34,8 @@ const Course = (props) => {
 
         {/* Video */}
 
+        <Image style={{height:'40%',width:'100%'}} source={{uri:data.image}}></Image>
+
         {/* <Video
         ref={video}
         style={{height:1000,width:1000}}
@@ -55,7 +59,7 @@ const Course = (props) => {
         {/*End of Video tags */}
 
 
-      <Text style={{fontWeight:'500',fontSize:17}}>{data.name}</Text>
+      <Text style={{fontWeight:'500',fontSize:17,alignSelf:'center'}}>{data.name}</Text>
       <View style={styles.container}>
         
         {/* <CheckBoxES></CheckBoxES> */}
@@ -103,12 +107,8 @@ const Course = (props) => {
         </TouchableOpacity>
       </View>
 
-         {menu==1 && <FlatList data={['1111ghfjakfa','hdkfhajdfl','ajkhfakfa','ajhfakjhfka','akjflakfjak','akfkaljla','akdja']}
-          renderItem={(ele)=><Text>{ele.item}</Text>
-    }     />}   
-         {menu==2 && <FlatList data={['2222ghfjakfa','hdkfhajdfl','ajkhfakfa','ajhfakjhfka','akjflakfjak','akfkaljla','akdja']}
-          renderItem={(ele)=><Text>{ele.item}</Text>
-    }     />}   
+         {menu==1 && <Overview data={data}/>}   
+         {menu==2 && <Contents data={data.contents}/>}   
          {menu==3 && <FlatList data={['3333ghfjakfa','hdkfhajdfl','ajkhfakfa','ajhfakjhfka','akjflakfjak','akfkaljla','akdja']}
           renderItem={(ele)=><Text>{ele.item}</Text>
     }     />}     
@@ -128,14 +128,3 @@ const styles = StyleSheet.create({
     },
 })
 
-const Chapter=({title,no,sectionsArr})=>
-<View>
-  {no!=0 && <Text style={{fontWeight:200}}>{no} {title}</Text>}
-  {no==0 && <Text style={{fontWeight:200}}>{title}</Text>}
-  <FlatList data={sectionsArr} renderItem={(ele)=>
-  <View>
-    {/* NEED TO PLACE CHECKBOXES HERE */}
-    <Text>{ele.item}</Text>
-  </View>
-  }/>
-</View>

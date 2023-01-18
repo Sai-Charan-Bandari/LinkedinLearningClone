@@ -2,21 +2,20 @@ import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity, Image } fro
 import React,{useState} from 'react'
 
 const EditSkills = (props) => {
-    const [skillsArr, setSkillsArr] = useState(['Personal Development', 'Communication', 'Career Development', 'Cloud Computing', 'Mobile Application Development', 'Animation', 'Web Development'])
+    
     return (
         <View style={styles.container}>
             <Button title="go back" onPress={() => { props.setEditPage(false) }}></Button>
-            <Text>EditSkills</Text>
             <TouchableOpacity style={{ borderColor: 'lightgrey', borderBottomWidth: 1 }} onPress={() =>{}}>
                     <Text>ADD MORE SKILLS</Text>
                 </TouchableOpacity>
 
-            <FlatList data={skillsArr} renderItem={(ele) =>
+            <FlatList data={props.skillsArr} renderItem={(ele) =>
                 <TouchableOpacity style={{ borderColor: 'lightgrey', borderBottomWidth: 1 }} onPress={() =>
                     {
-                        const k=skillsArr.filter((item,index) => index != ele.index)
+                        const k=props.skillsArr.filter((item,index) => index != ele.index)
                         console.log(k)
-                        setSkillsArr([...k])        
+                        props.setSkillsArr(k)        
                     }
                             }>
                     <Text>{ele.item}</Text>
