@@ -14,6 +14,7 @@ const Course = (props) => {
   const nav=useNavigation()
   //when i kept this statement within useEffect ..it didnt work indicating that the render occurred before the useEffect was called
   const data=props.route.params.data
+  console.log(data)
 
   useEffect(()=>{
     props.route.params.setShowMenu(false);
@@ -116,7 +117,8 @@ const Course = (props) => {
         </TouchableOpacity>
       </View>
 
-         {menu==1 && <Overview data={data}/>}   
+         {menu==1 && <Overview data={data}/>}  
+          {/*we need to pass only the contents array of the course obj... but i've not yet created contents array for each course obj..hence i am passing whole course data  */}
          {menu==2 && <Contents arr={data}/>}   
          {menu==3 && <FlatList data={['3333ghfjakfa','hdkfhajdfl','ajkhfakfa','ajhfakjhfka','akjflakfjak','akfkaljla','akdja']}
           renderItem={(ele)=><Text>{ele.item}</Text>
