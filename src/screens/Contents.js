@@ -41,7 +41,7 @@ const Chapter=({name,no,sectionsArr})=>{
 </View> )
 }
 
-// CHAPTER COMP IS NOT WORKING
+// IMP : WE DID NOT YET TAKE THE CONTENTS ARRAY FROM THE COURSE OBJECT..INSTEAD USED SAMPLE ARRAY
 const Contents = ({arr}) => {
 
   return (
@@ -57,7 +57,7 @@ const Contents = ({arr}) => {
 
 
     {['introduction','chapp1','chapp2','chapp3','chapp4','chapp1','chapp1','chapp1'].map((ele,index)=>
-     <Chapter  name={ele} no={index} sectionsArr={[{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:false},{topic:'s1ghfjakfa',done:false},{topic:'Chapter Quiz',done:false},]}/>)}
+     <Chapter key={index} name={ele} no={index} sectionsArr={[{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:false},{topic:'s1ghfjakfa',done:false},{topic:'Chapter Quiz',done:false},]}/>)}
 
     </ScrollView>
   )
