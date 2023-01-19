@@ -1,2 +1,5 @@
 need to make hiding menubar warnings free
 useScrollToTop() when clicked on menu bar again for the same screenOptions
+Prob in contents, (still need to pass data.contents (course contents) via props) (alt: use accordions)
+prob verticalList=>ListItem
+How to show comp over another comp

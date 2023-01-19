@@ -5,6 +5,7 @@ import { Video, AVPlaybackStatus } from 'expo-av';
 import { useRoute } from '@react-navigation/native';
 import Contents from './Contents';
 import Overview from './Overview';
+
 // const data=useRoute().params //same as useParams in react
 
 // NOTE: Whenever we enter Course comp we setShowMenu to false and whenever we go back from this Screen we will set it back to true.
@@ -18,6 +19,14 @@ const Course = (props) => {
     props.route.params.setShowMenu(false);
   },[])
   
+  useEffect(()=>{
+    return ()=>{
+    props.route.params.setShowMenu(true)
+      // console.log('destroyed')
+  }
+  // this useEffect is called when Course is destroyed
+  },[])
+
     const [menu,setMenu]=useState(1)
     // 1:// overview
     // 2:// contents
@@ -27,14 +36,14 @@ const Course = (props) => {
 
   return (
     <View>
-      {/* this button must be clicked to go back and also to setShowMenu to true */}
+      {/* this button may not be clicked*/}
       <Button title="go back" onPress={()=>{
         props.route.params.setShowMenu(true);
         nav.goBack()}}></Button>
 
         {/* Video */}
 
-        <Image style={{height:'40%',width:'100%'}} source={{uri:data.image}}></Image>
+        <Image style={{height:280,width:'100%'}} source={{uri:data.image}}></Image>
 
         {/* <Video
         ref={video}
@@ -108,7 +117,7 @@ const Course = (props) => {
       </View>
 
          {menu==1 && <Overview data={data}/>}   
-         {menu==2 && <Contents data={data.contents}/>}   
+         {menu==2 && <Contents arr={data}/>}   
          {menu==3 && <FlatList data={['3333ghfjakfa','hdkfhajdfl','ajkhfakfa','ajhfakjhfka','akjflakfjak','akfkaljla','akdja']}
           renderItem={(ele)=><Text>{ele.item}</Text>
     }     />}     

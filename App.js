@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {React,useState} from 'react';
+import {React,useEffect,useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './src/screens/Home';
 import MyLearning from './src/screens/MyLearning';
@@ -11,11 +11,15 @@ import Topics from './src/screens/Topics';
 import Notifications from './src/screens/Notifications';
 import Profile from './src/screens/Profile';
 
+
 const Stack = createNativeStackNavigator()
 
 export default function App() {
   //need to pass this state to all other comps
   const [showMenu,setShowMenu]=useState(true)
+  useEffect(()=>{
+    // setShowMenu(true)
+  })
 
   // NavigationContainer tags did not work if i enclosed them within View tags.Hence i removed outer View tags
   return (
