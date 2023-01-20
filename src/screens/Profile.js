@@ -7,8 +7,16 @@ import VerticalList from './VerticalList'
 
 const Profile = (props) => {
   useEffect(()=>{
+    //called when Profile screen is created
     props.route.params.setShowMenu(false);
   },[])
+  
+  useEffect(()=>{
+    //called when Profile screen is destroyed
+    return ()=>{
+    props.route.params.setShowMenu(true)
+  }},[])
+
   const [editPage, setEditPage] = useState(false)
   const [coursesListPage, setCoursesListPage] = useState('NULL')
 
@@ -20,7 +28,7 @@ const Profile = (props) => {
   return (
     <View style={{alignItems:'center'}}>
 
-        <Button title="go back" onPress={()=>{props.route.params.setShowMenu(true);nav.goBack()}}></Button>
+        {/* <Button title="go back" onPress={()=>{props.route.params.setShowMenu(true);nav.goBack()}}></Button> */}
 
       <Image style={{height:100,width:100,marginTop:60}} source={{uri:"https://cdn-icons-png.flaticon.com/128/9131/9131529.png"}}></Image>
       <Text>Sai Charan Bandari</Text>
