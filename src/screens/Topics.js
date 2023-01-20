@@ -11,9 +11,7 @@ const TextBox=(props)=>
     </View>
 
 
-const Topics = (props) => {
-  if(props.navigation.isFocused) 
-    props.route.params.setMenuItem('Topics')
+const Topics = () => {
   return (
     <View>
       <View >
