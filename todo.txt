@@ -3,4 +3,10 @@ useScrollToTop() when clicked on menu bar again for the same screenOptions
 Prob in contents, (still need to pass data.contents (course contents) via props) (alt: use accordions)
 prob verticalList=>ListItem //problem : unable to display all elements => same problem in Overview
 Close button of modal must be at top left of screenOptions
+in modal in menuBar2 the TextInput needs to be focused automatically and keyboard must be displayed
 # too many problems in course comp in overview and contents
+#need to update Profile,Settings
+#when coming out of a course in MyLearning the menubar is highlighting Home button
+# in MenuBar2, clicking on search button should display a modal over the screens...in App.js...but not in the MenuBar2 itself
+ ... it will simply push the Lists in Screen if we place it within the MenuBaar2
+ (# EDIT: modal doesnot need to push any components ..it simply displays over other comps... SOLVED)
