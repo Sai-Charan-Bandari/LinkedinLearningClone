@@ -2,4 +2,5 @@ need to make hiding menubar warnings free
 useScrollToTop() when clicked on menu bar again for the same screenOptions
 Prob in contents, (still need to pass data.contents (course contents) via props) (alt: use accordions)
 prob verticalList=>ListItem //problem : unable to display all elements => same problem in Overview
-How to show comp over another comp
+Close button of modal must be at top left of screenOptions
+# too many problems in course comp in overview and contents

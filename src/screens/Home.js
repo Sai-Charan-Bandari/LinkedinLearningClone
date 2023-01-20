@@ -15,7 +15,9 @@ const Slider=(props)=>
         }/>
 </View>
 
-const Home = () => { 
+const Home = (props) => { 
+    if(props.navigation.isFocused) 
+    props.route.params.setMenuItem('Home')
     
   return (
     <View>

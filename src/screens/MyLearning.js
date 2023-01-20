@@ -5,6 +5,8 @@ import { useEffect } from 'react'
 
 import {downloadsArr,inProgressArr,savedArr,learningHistoryArr} from '../data/Arrays'
 const MyLearning = (props) => {
+    if(props.navigation.isFocused) 
+    props.route.params.setMenuItem('MyLearning')
 
     return (
     <View>

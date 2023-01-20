@@ -17,6 +17,13 @@ const Stack = createNativeStackNavigator()
 export default function App() {
   //need to pass this state to all other comps
   const [showMenu,setShowMenu]=useState(true)
+  const [menuItem,setMenuItem]=useState('Home')
+  useEffect(()=>{
+    if(menuItem=='Notifications')
+    console.log('changed ',menuItem)
+    else if(menuItem=='Topics')
+    console.log('changed to topics')
+  },[menuItem])
   useEffect(()=>{
     // setShowMenu(true)
   })
@@ -29,14 +36,14 @@ export default function App() {
         <View style={{marginTop:30}}></View>
         {/* <Stack.Navigator initialRouteName='Home' > */}
         <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}} >
-          <Stack.Screen name='Home' component={Home} />
-          <Stack.Screen name='MyLearning' component={MyLearning} />
+          <Stack.Screen name='Home' component={Home} initialParams={{setMenuItem:setMenuItem}}/>
+          <Stack.Screen name='MyLearning' component={MyLearning} initialParams={{setMenuItem:setMenuItem}}/>
           <Stack.Screen name='Course' component={Course} initialParams={{setShowMenu:setShowMenu}}/>
-          <Stack.Screen name='Topics' component={Topics}/>
-          <Stack.Screen name='Notifications' component={Notifications}/>
+          <Stack.Screen name='Topics' component={Topics} initialParams={{setMenuItem:setMenuItem}}/>
+          <Stack.Screen name='Notifications' component={Notifications} initialParams={{setMenuItem:setMenuItem}}/>
           <Stack.Screen name='Profile' component={Profile} initialParams={{setShowMenu:setShowMenu}}/>
         </Stack.Navigator>
-        {showMenu && <MenuBar />}
+        {showMenu && <MenuBar menuItem={menuItem}/>}
       </NavigationContainer>
       {/* MenuBar cannot be placed outside NavigationContainer bcoz it will not have access to screens/routes */}
     </>
