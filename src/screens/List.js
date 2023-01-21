@@ -15,9 +15,13 @@ const MyModal=({modalVisible,setModalVisible,modalData})=>{
             //when we press the back button in the mobile/ swipe to go back ... then this func is executed
             setModalVisible(!modalVisible);
           }}>
+            
+            {/* THIS TOUCHABLEOPACITY IS THE MAIN COMP AND COVERS THE ENTIRE SCREEN AREA. CLICKING ON THIS WILL SIMPLY CLOSE THE MODAL */}
         <TouchableOpacity style={[{backgroundColor:'#00000080'},styles.centeredView]} onPress={()=>
+                    setModalVisible(!modalVisible)}>
+          {/* THIS TOUCHABLEOPACITY IS THE BODY OF THE COURSE CARD  */}
+          <TouchableOpacity style={styles.modalView} onPress={()=>
                     navigation.navigate('Course',{data:modalData})}>
-          <View style={styles.modalView}>
           <Image style={{height:200,width:310,alignSelf:'center'}} source={{uri:modalData.image}}></Image>
             <View style={{marginLeft:20,width:290}} >
             <Text style={{fontWeight:'300',fontSize:12}}>COURSE</Text>
@@ -36,10 +40,11 @@ const MyModal=({modalVisible,setModalVisible,modalData})=>{
               </View>
 
             {/* close button */}
-          </View>
-            <Pressable style={{position:'absolute',top:0,left:10,backgroundColor:'white',width:20}}
+          </TouchableOpacity>
+          {/* THIS PRESSABLE/BUTTON IS USED TO CLOSE THE MODAL. IT IS PLACED OUTSIDE THE COURSE CARD TOUCHABLEOPACITY AND WITHIN THE ROOT TOUCHABLEOPACITY, SO THAT IT CAN BE PLACED ANYWHERE ON THE ENTIRE SCREEN */}
+            <Pressable style={{position:'absolute',top:0,left:15,backgroundColor:'white',width:20,height:20}}
               onPress={() => setModalVisible(!modalVisible)}>
-              <Text >X</Text>
+              <Text style={{alignSelf:'center'}}>X</Text>
         </Pressable>
         </TouchableOpacity>
       </Modal>

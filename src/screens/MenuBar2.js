@@ -2,6 +2,8 @@ import { StyleSheet, Text, View,Image,TouchableOpacity ,Modal,TextInput, ScrollV
 import {useNavigation} from '@react-navigation/native'
 import React, { useState,useRef } from 'react'
 
+//in order to "display textinput along with keypad" we need to use onLayout property with callback func and call ref.current.focus()
+//if this doesnt work place ref.current.focus() within setTimeout 
 const SearchModal=({setShowSearch})=>{
     const inputref=useRef()
     return(
@@ -36,8 +38,7 @@ const SearchModal=({setShowSearch})=>{
                     <TouchableOpacity style={styles.ellipse}>
                     <Text >
                         {ele.item}
-                    </Text>
-                        
+                    </Text>    
                     </TouchableOpacity>
                 }></FlatList>
         </ScrollView>
