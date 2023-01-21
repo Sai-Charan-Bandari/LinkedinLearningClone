@@ -18,10 +18,12 @@ const Stack = createNativeStackNavigator()
 export default function App() {
   //need to pass this state to all other comps
   const [showMenu,setShowMenu]=useState(true)
+  const [menuItem,setMenuItem]=useState(1)
   const [isNotifications,setIsNotifications]=useState(false)
+  const [scroll,setScroll]=useState(false)
   useEffect(()=>{
-    console.log('changeds')
-  },[isNotifications])
+    // console.log('app ',scroll)
+  },[scroll])
   useEffect(()=>{
     // setShowMenu(true)
   })
@@ -36,15 +38,15 @@ export default function App() {
         {showMenu && <MenuBar2 isNotifications={isNotifications}/>}
         {/* <Stack.Navigator initialRouteName='Home' > */}
         <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}} >
-          <Stack.Screen name='Home' component={Home} />
-          <Stack.Screen name='MyLearning' component={MyLearning} />
+          <Stack.Screen name='Home' component={Home} initialParams={{scroll:scroll,setScroll:setScroll}} />
+          <Stack.Screen name='MyLearning' component={MyLearning} initialParams={{scroll:scroll}}/>
           <Stack.Screen name='Course' component={Course} initialParams={{setShowMenu:setShowMenu}}/>
           <Stack.Screen name='Topics' component={Topics} />
           <Stack.Screen name='Notifications' component={Notifications} />
           <Stack.Screen name='Profile' component={Profile} initialParams={{setShowMenu:setShowMenu}}/>
           <Stack.Screen name='Settings' component={Settings} initialParams={{setShowMenu:setShowMenu}}/>
         </Stack.Navigator>
-        {showMenu && <MenuBar setIsNotifications={setIsNotifications} isNotifications={isNotifications}/>}
+        {showMenu && <MenuBar  scroll={scroll} setScroll={setScroll} menuItem={menuItem} setMenuItem={setMenuItem} setIsNotifications={setIsNotifications} isNotifications={isNotifications}/>}
       </NavigationContainer>
       {/* MenuBar cannot be placed outside NavigationContainer bcoz it will not have access to screens/routes */}
     </>

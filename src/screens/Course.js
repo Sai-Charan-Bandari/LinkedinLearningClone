@@ -14,7 +14,7 @@ const Course = (props) => {
   const nav=useNavigation()
   //when i kept this statement within useEffect ..it didnt work indicating that the render occurred before the useEffect was called
   const data=props.route.params.data
-  console.log(data)
+  // console.log(data)
 
   useEffect(()=>{
     props.route.params.setShowMenu(false);

@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View ,Image,TouchableOpacity,FlatList,Button} from 'react-native'
 import React,{useEffect,useState} from 'react'
-import { useNavigation } from '@react-navigation/native'
 import EditSkills from './EditSkills'
 import VerticalList from './VerticalList'
 
@@ -19,8 +18,6 @@ const Profile = (props) => {
 
   const [editPage, setEditPage] = useState(false)
   const [coursesListPage, setCoursesListPage] = useState('NULL')
-
-  const nav=useNavigation()
   
   const [skillsArr, setSkillsArr] = useState(['Personal Development', 'Communication', 'Career Development', 'Cloud Computing', 'Mobile Application Development', 'Animation', 'Web Development'])
 

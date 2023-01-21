@@ -7,6 +7,7 @@ const MyModal=({modalVisible,setModalVisible,modalData})=>{
     const navigation=useNavigation()
     return(
         <Modal
+        hardwareAccelerated={true}
         animationType="fade"
         transparent={true}
         visible={modalVisible}
@@ -14,7 +15,7 @@ const MyModal=({modalVisible,setModalVisible,modalData})=>{
             //when we press the back button in the mobile/ swipe to go back ... then this func is executed
             setModalVisible(!modalVisible);
           }}>
-        <TouchableOpacity style={styles.centeredView} onPress={()=>
+        <TouchableOpacity style={[{backgroundColor:'#00000080'},styles.centeredView]} onPress={()=>
                     navigation.navigate('Course',{data:modalData})}>
           <View style={styles.modalView}>
           <Image style={{height:200,width:310,alignSelf:'center'}} source={{uri:modalData.image}}></Image>
@@ -35,11 +36,11 @@ const MyModal=({modalVisible,setModalVisible,modalData})=>{
               </View>
 
             {/* close button */}
-            <Pressable style={{position:'absolute',top:0,left:0,backgroundColor:'white',width:20}}
+          </View>
+            <Pressable style={{position:'absolute',top:0,left:10,backgroundColor:'white',width:20}}
               onPress={() => setModalVisible(!modalVisible)}>
               <Text >X</Text>
         </Pressable>
-          </View>
         </TouchableOpacity>
       </Modal>
     )
@@ -116,7 +117,7 @@ centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
+    // marginTop: 22,
 },
 modalView: {
     backgroundColor: 'white',

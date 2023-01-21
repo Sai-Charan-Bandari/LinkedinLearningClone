@@ -9,12 +9,11 @@ const ListItem=(props)=>{
     return(
     <TouchableOpacity style={styles.container} onPress={()=>nav.navigate('Course',{data:props.courseData})}>
         
-        {/* <View style={{width:'40%',height:'70%'}}> */}
         <ImageBackground style={{height:90,width:130,borderRadius:10,}} source={{uri:props.courseData.image}}>
                 <View style={{padding:5,backgroundColor:'white',width:'60%',borderRadius:5}}><Text style={{fontSize:9}}>POPULAR</Text></View>
                 <Text style={{color:'white',marginLeft:'auto',marginTop:'auto',backgroundColor:'black'}}>{props.courseData.time}</Text>
                 </ImageBackground>
-        {/* </View> */}
+
         <View style={{marginLeft:10,width:'70%'}}>
             <View style={[styles.container]}>
                 <Text>COURSE</Text>
@@ -33,18 +32,17 @@ const ListItem=(props)=>{
 const VerticalList = (props) => {
 
   return (
-    //TEMPORARY FIX : I HAVE SET THE ROOT ELEMENT HEIGHT TO 95%...MAKING IT 100% WILL PARTIALY HIDE THE LAST ELEMENT
-    <View style={{height:'95%'}}>
-      <Text>{props.coursesType}</Text>
+    <>
+      {props.coursesType && <Text>{props.coursesType}</Text>}
       {/* PROCEDURE */}
       {/* we need to fetch courses data and filter them according to their category (coursesType) */}
       {/* then we will display them in flat list */}
 
-      <FlatList  data={newCoursesArr} renderItem={(ele)=>
+      {/* //TEMPORARY FIX : i had to set the height of flatlist such that it exactly fit into the remaining screen size and did not extend out of the screen */}
+      <FlatList style={{height:'92%'}}  data={newCoursesArr} renderItem={(ele)=>
       <ListItem courseData={ele.item}/>
     }/>
-    
-    </View>
+    </>
   )
 }
 

@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View ,ScrollView,FlatList,TouchableOpacity,Image,ImageBackground} from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View ,ScrollView,FlatList,TouchableOpacity,Image,ImageBackground, Button} from 'react-native'
+import React, { useEffect } from 'react'
 import List from './List'
 import {topPicksArr,bcozOfSkillsUFollowArr,thisWeeksTopCoursesArr,newReleasesArr,popularOnLinkedinLearningArr,mostLikedOnLinkedinLearningArr,relatedCoursesArr,newCoursesArr} from '../data/Arrays'
+import { useRef } from 'react'
 
 const Slider=(props)=>
 <View style={{backgroundColor:'lightblue'}}>
@@ -15,11 +16,14 @@ const Slider=(props)=>
         }/>
 </View>
 
-const Home = () => { 
-    
+const Home = (props) => { 
+    const ref=useRef()
+    useEffect(()=>{
+      ref.current.scrollTo({y:0,animated:true})
+    },[props.route.params.scroll])
   return (
     <View>
-      <ScrollView >
+      <ScrollView ref={ref} >
       <Slider arr={newCoursesArr} />
       <List arr={topPicksArr} showSeeAll={false} heading={'Top Picks for BSC'}></List>
       <List arr={bcozOfSkillsUFollowArr} showSeeAll={false} heading={'Because of skills you follow'}></List>
@@ -28,6 +32,7 @@ const Home = () => {
       <List arr={popularOnLinkedinLearningArr} showSeeAll={false} heading={'Popular on Linkedin Learning'}></List>
       <List arr={mostLikedOnLinkedinLearningArr} showSeeAll={false} heading={'Most liked on Linkedin Learning'}></List>
       <List arr={relatedCoursesArr} showSeeAll={false} heading={'Related Courses'}></List>
+      {/* <Button title="scroll to top" onPress={()=>ref.current.scrollTo({y:0,animated:true})} /> */}
       </ScrollView>
     </View>
   )

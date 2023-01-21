@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View,Image,TouchableOpacity ,Modal,TextInput, ScrollView,FlatList} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
-import React, { useState } from 'react'
+import React, { useState,useRef } from 'react'
 
 const SearchModal=({setShowSearch})=>{
+    const inputref=useRef()
     return(
         // animationType in Modal tells how the transitions take place when creating or destroying the Modal
         <Modal animationType="slide" transparent={true} >
@@ -11,7 +12,7 @@ const SearchModal=({setShowSearch})=>{
             <TouchableOpacity onPress={()=>setShowSearch(false)}>
             <Image style={{width:22,height:22,margin:15,borderRadius:10,marginRight:10}} source={{uri: "https://cdn-icons-png.flaticon.com/128/2976/2976252.png"}} />
             </TouchableOpacity>
-        <TextInput  style={{width:'80%'}} placeholder='Search for skills subjects, or software'></TextInput>
+        <TextInput ref={inputref} onLayout={()=>{setTimeout(()=>inputref.current.focus(),50)}}  style={{width:'80%'}} placeholder='Search for skills subjects, or software'></TextInput>
         </View>
         <ScrollView style={{height:300}}>
             <Text style={{fontWeight:'500',margin:10}}>Recent searches</Text>

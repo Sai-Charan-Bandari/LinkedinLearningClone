@@ -14,17 +14,18 @@ const Chapter=({name,no,sectionsArr})=>{
         </TouchableOpacity>
   </View>
 
-  {/* {show && <FlatList data={sectionsArr} renderItem={(ele)=>
-  <View>
-    <Text>{ele.item}</Text>
-  </View>
-  }/>} */}
+  {show && <View >
+    {sectionsArr.map((ele,index)=>
+      <ChapterItem key={index} ele={ele}/>
+    )}
+    </View>}
+</View> )
+}
 
-  {show && <ScrollView >
-    {sectionsArr.map((ele,index)=>{
-      const [download,setDownload]=useState(false)
-      return(
-    <TouchableOpacity key={index} style={{display:'flex',
+const ChapterItem=({ele})=>{
+  const [download,setDownload]=useState(false)
+  return(
+    <TouchableOpacity style={{display:'flex',
     flexDirection:'row',}}>
       <Image style={{width:20,height:20,alignSelf:'center'}} source={{uri: ele.done ? "https://cdn-icons-png.flaticon.com/128/443/443138.png" : "https://cdn-icons-png.flaticon.com/128/7837/7837400.png"}} />
       <Text style={{marginLeft:10}}>{ele.topic}</Text>
@@ -32,13 +33,8 @@ const Chapter=({name,no,sectionsArr})=>{
       {(ele.topic != "Chapter Quiz") && <TouchableOpacity style={{marginLeft:'auto',marginRight:15}} onPress={()=>setDownload(!download)}>
       <Image style={{width:20,height:20,alignSelf:'center'}} source={{uri: download ? "https://cdn-icons-png.flaticon.com/128/726/726271.png" : "https://cdn-icons-png.flaticon.com/128/2926/2926214.png" }} />
         </TouchableOpacity>}
-      
     </TouchableOpacity>
       )
-}
-    )}
-    </ScrollView>}
-</View> )
 }
 
 // IMP : WE DID NOT YET TAKE THE CONTENTS ARRAY FROM THE COURSE OBJECT..INSTEAD USED SAMPLE ARRAY
@@ -46,20 +42,20 @@ const Contents = ({arr}) => {
 
   return (
     // dont place scrollview inside view...it led to improper scrolling
-    <ScrollView>
-      {/* <FlatList data={['2222ghfjakfa','hdkfhajdfl','ajkhfakfa','ajhfakjhfka','akjflakfjak','akfkaljla','akdja']}
-          renderItem={
-            (ele)=>
-            <Chapter style={{borderColor:'black',borderWidth:2,}} name={ele.item} no={ele.index} sectionsArr={['s1ghfjakfa','s2hdkfhajdfl','s3ajkhfakfa','ajhfakjhfka','akjflakfjak','akfkaljla','akdja']}/>
-            // <Text style={{borderColor:'black',borderWidth:2,}}>{ele.index}  {ele.item}</Text>
+    //i had to set the height of flatlist such that it exactly fit into the remaining screen size and did not extend out of the screen
+       <FlatList style={{height:420}} data={['introduction','chapp1','chapp2','chapp3','chapp4','chapp1','chapp1','chapp1']}
+          renderItem={(ele)=>
+            <Chapter  name={ele.item} no={ele.index} sectionsArr={[{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:false},{topic:'s1ghfjakfa',done:false},{topic:'Chapter Quiz',done:false},]}/>
           }     
-       /> */}
+       /> 
 
 
-    {['introduction','chapp1','chapp2','chapp3','chapp4','chapp1','chapp1','chapp1'].map((ele,index)=>
-     <Chapter key={index} name={ele} no={index} sectionsArr={[{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:false},{topic:'s1ghfjakfa',done:false},{topic:'Chapter Quiz',done:false},]}/>)}
+    // {['introduction','chapp1','chapp2','chapp3','chapp4','chapp1','chapp1','chapp1'].map((ele,index)=>
+    //  <Chapter key={index} name={ele} no={index} sectionsArr={[{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:false},{topic:'s1ghfjakfa',done:false},{topic:'Chapter Quiz',done:false},]}/>)}
 
-    </ScrollView>
+    // <FlatList data={['introduction','chapp1','chapp2','chapp3','chapp4','chapp1','chapp1','chapp1']} renderItem={(ele)=>
+    //   <Chapter  name={ele.item} no={ele.index} sectionsArr={[{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:false},{topic:'s1ghfjakfa',done:false},{topic:'Chapter Quiz',done:false},]}/> } />
+  
   )
 }
 

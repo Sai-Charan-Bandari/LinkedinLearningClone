@@ -2,13 +2,17 @@ import { StyleSheet, Text, View ,ScrollView,TouchableOpacity,Image} from 'react-
 import React from 'react'
 import List from './List'
 import { useEffect } from 'react'
+import { useRef } from 'react'
 
 import {downloadsArr,inProgressArr,savedArr,learningHistoryArr} from '../data/Arrays'
 const MyLearning = (props) => {
-
+    const ref=useRef()
+    useEffect(()=>{
+        ref.current.scrollTo({y:0,animated:true})
+    },[props.route.params.scroll])
     return (
     <View>
-      <ScrollView>
+      <ScrollView ref={ref}>
 
             <TouchableOpacity onPress={()=>props.navigation.navigate('Profile')} style={styles.top}> 
             {/* icon profile */}

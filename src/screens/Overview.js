@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View,TouchableOpacity,Image,FlatList, ScrollView } from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity,Image,FlatList, ScrollView,Alert } from 'react-native'
 import React,{useState} from 'react'
 import VerticalList from './VerticalList'
 
 const Overview = ({data}) => {
   const [showFullDesc,setShowFullDesc]=useState(false)
   return (
-    <ScrollView style={{paddingLeft:20}}>
+    //i had to set the height of flatlist such that it exactly fit into the remaining screen size and did not extend out of the screen
+    <ScrollView style={{paddingLeft:20,height:420}}>
       <Text>{data.time}.{data.date}</Text>
       <Text>{showFullDesc ? data.description : data.description.substring(0,120)}
       </Text>
@@ -17,7 +18,7 @@ const Overview = ({data}) => {
         <View style={styles.container}>
         <Image style={{marginLeft:10,width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/2958/2958783.png"}} />
           <Text >Learning Groups</Text>
-        <TouchableOpacity onPress={()=>Alert.alert('Share this course','',[{text:'Share'}])}>
+        <TouchableOpacity onPress={()=>Alert.alert('Share this course','',[{text:'See all'}])}>
           <Text style={{color:'blue'}}>See All</Text>
         </TouchableOpacity>
         </View>
@@ -72,7 +73,7 @@ const Overview = ({data}) => {
         </View>
 
         <Text>Similar content</Text>
-        <VerticalList />
+        <VerticalList   />
     </ScrollView>
   )
 }
