@@ -17,14 +17,29 @@ const Course = (props) => {
   // console.log(data)
 
   useEffect(()=>{
+    //if this comp is called by VerticalList then the menu bars are already set to false..so no need to set to false
+    if(!props.route.params.isVerticalList)
     props.route.params.setShowMenu(false);
+    else
+    console.log('no need to set to false')
   },[])
   
   useEffect(()=>{
-    return ()=>{
-    props.route.params.setShowMenu(true)
-      // console.log('destroyed')
-  }
+    //we know that VerticalList is comp of Profile and Course.
+    //if this Course page is being called from a Profile page or another Course page's Overview
+    //then we must not set the Menubars to true when this comp is destroyed.
+    //we must setback the Menubars to true only if this comp is called by the Menubar comps like Home,MyLearning.
+    let isVerticalList
+    if(props.route.params.isVerticalList)
+    isVerticalList=props.route.params.isVerticalList
+    else
+    isVerticalList=false
+    console.log('value of isVerticalList is ',isVerticalList)
+    if(!isVerticalList){
+      return ()=>{
+      props.route.params.setShowMenu(true)
+      }  
+    }
   // this useEffect is called when Course is destroyed
   },[])
 
@@ -39,7 +54,6 @@ const Course = (props) => {
     <View>
       {/* this button may not be clicked*/}
       <Button title="go back" onPress={()=>{
-        props.route.params.setShowMenu(true);
         nav.goBack()}}></Button>
 
         {/* Video */}

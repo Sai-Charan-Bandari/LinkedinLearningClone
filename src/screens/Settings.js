@@ -7,8 +7,11 @@ const Settings = (props) => {
     props.route.params.setShowMenu(false);
 },[])
 
+//called when Settings screen is destroyed
 useEffect(()=>{
-          //called when Settings screen is destroyed
+          //this params tells whether the settings comp was called by Profile or by MenuBar2
+          //if it is called by Profile then we should not display Menu bars on destroying this Settings screen
+          if(!props.route.params.isProfile) 
         return ()=>{
         props.route.params.setShowMenu(true)
           // console.log('destroyed')

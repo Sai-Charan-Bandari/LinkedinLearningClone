@@ -63,7 +63,7 @@ const MenuBar2 = ({isNotifications}) => {
             }}>
          <Image style={{width:22,height:22,margin:15,borderRadius:10,marginLeft:'auto',marginRight:10}} source={{uri: "https://image.pngaaa.com/560/25560-middle.png"}} />
             </TouchableOpacity>
-            {isNotifications && <TouchableOpacity onPress={()=>navigation.navigate('Settings')}>
+            {isNotifications && <TouchableOpacity onPress={()=>navigation.navigate('Settings',{isProfile:false})}>
          <Image style={{width:22,height:22,margin:15}} source={{uri: "https://www.iconsdb.com/icons/preview/white/settings-xxl.png"}} />
             </TouchableOpacity>}
             </View>

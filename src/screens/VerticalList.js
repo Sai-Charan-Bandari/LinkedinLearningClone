@@ -2,12 +2,13 @@ import { StyleSheet, Text, View ,ImageBackground,Image,TouchableOpacity,FlatList
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { newCoursesArr } from '../data/Arrays'
+import CourseFilter from './CourseFilter'
 
 const ListItem=(props)=>{
     const nav=useNavigation()
     const [saveCourse,setSaveCourse]=useState(false)
     return(
-    <TouchableOpacity style={styles.container} onPress={()=>nav.navigate('Course',{data:props.courseData})}>
+    <TouchableOpacity style={styles.container} onPress={()=>nav.navigate('Course',{data:props.courseData,isVerticalList:true})}>
         
         <ImageBackground style={{height:90,width:130,borderRadius:10,}} source={{uri:props.courseData.image}}>
                 <View style={{padding:5,backgroundColor:'white',width:'60%',borderRadius:5}}><Text style={{fontSize:9}}>POPULAR</Text></View>
@@ -29,17 +30,27 @@ const ListItem=(props)=>{
     )
 }
 
-const VerticalList = (props) => {
+const VerticalList = ({coursesType,showFilter}) => {
+let [filterParams,setFilterParams]=useState({
+  language:'English'
+})
+
+  let showFilter2
+  if(showFilter)
+    showFilter2=showFilter
+    else
+    showFilter2=false
 
   return (
     <>
-      {props.coursesType && <Text>{props.coursesType}</Text>}
+      {/* {props.coursesType && <Text>{props.coursesType}</Text>} */}
+      {showFilter2 && <CourseFilter filterParams={filterParams} setFilterParams={setFilterParams}/>}
       {/* PROCEDURE */}
       {/* we need to fetch courses data and filter them according to their category (coursesType) */}
       {/* then we will display them in flat list */}
 
       {/* //TEMPORARY FIX : i had to set the height of flatlist such that it exactly fit into the remaining screen size and did not extend out of the screen */}
-      <FlatList style={{height:'92%'}}  data={newCoursesArr} renderItem={(ele)=>
+      <FlatList style={{height:'89%'}}  data={newCoursesArr.concat(newCoursesArr)} renderItem={(ele)=>
       <ListItem courseData={ele.item}/>
     }/>
     </>
