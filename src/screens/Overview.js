@@ -73,7 +73,8 @@ const Overview = ({data}) => {
         </View>
 
         <Text>Similar content</Text>
-        <VerticalList   />
+        {/* courseType is not yet passed into this verticallist */}
+        <VerticalList  showFilter={false} showPopular={false} courseArr={[]} />
     </ScrollView>
   )
 }

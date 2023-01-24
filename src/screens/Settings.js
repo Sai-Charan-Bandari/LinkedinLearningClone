@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View,TouchableOpacity, FlatList ,Alert,Image,Switch, ScrollView,Linking} from 'react-native'
 import React,{useState,useEffect} from 'react'
 import { useNavigation } from '@react-navigation/native'
+import TopMenu from './TopMenu'
 
 // LINKING IS USED TO OPEN HYPERLINKS/URLS
 // SWITCH USES onValueChange property but not onChange
@@ -38,13 +39,7 @@ useEffect(()=>{
   return (
     <View>
       {/* top menu */}
-    <View style={[{backgroundColor:'#0077b5',padding:10},styles.container]}>
-        <TouchableOpacity onPress={()=>nav.goBack()}>
-      {/* flipped imgae horizontally */}
-      <Image style={{height:30,width:30,transform:[{scaleX:(-1)}] }} source={{uri:"https://cdn-icons-png.flaticon.com/128/7466/7466366.png"}}></Image>
-    </TouchableOpacity>
-      <Text style={{color:'white',fontSize:19,fontWeight:'500'}}>Settings</Text>
-    </View>
+      <TopMenu name='Settings' />
     
     {/* body */}
     <ScrollView style={{height:'95%'}}>

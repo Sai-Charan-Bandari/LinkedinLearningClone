@@ -5,13 +5,14 @@ import { newCoursesArr } from '../data/Arrays'
 import CourseFilter from './CourseFilter'
 
 const ListItem=(props)=>{
+  console.log('showPopular is founnd tp be',props.showPopular)
     const nav=useNavigation()
     const [saveCourse,setSaveCourse]=useState(false)
     return(
     <TouchableOpacity style={styles.container} onPress={()=>nav.navigate('Course',{data:props.courseData,isVerticalList:true})}>
         
         <ImageBackground style={{height:90,width:130,borderRadius:10,}} source={{uri:props.courseData.image}}>
-                <View style={{padding:5,backgroundColor:'white',width:'60%',borderRadius:5}}><Text style={{fontSize:9}}>POPULAR</Text></View>
+                {props.showPopular && <View style={{padding:5,backgroundColor:'white',width:'60%',borderRadius:5}}><Text style={{fontSize:9}}>POPULAR</Text></View>}
                 <Text style={{color:'white',marginLeft:'auto',marginTop:'auto',backgroundColor:'black'}}>{props.courseData.time}</Text>
                 </ImageBackground>
 
@@ -30,7 +31,9 @@ const ListItem=(props)=>{
     )
 }
 
-const VerticalList = ({coursesType,showFilter}) => {
+// We can fetch data(array) here using coursesType
+//else it can also take the array as props also (courseArr)
+const VerticalList = ({coursesType,showFilter,courseArr,showPopular}) => {
 let [filterParams,setFilterParams]=useState({
   language:'English'
 })
@@ -50,8 +53,8 @@ let [filterParams,setFilterParams]=useState({
       {/* then we will display them in flat list */}
 
       {/* //TEMPORARY FIX : i had to set the height of flatlist such that it exactly fit into the remaining screen size and did not extend out of the screen */}
-      <FlatList style={{height:'89%'}}  data={newCoursesArr.concat(newCoursesArr)} renderItem={(ele)=>
-      <ListItem courseData={ele.item}/>
+      <FlatList style={{height:'89%'}}  data={courseArr.length==0 ? newCoursesArr.concat(newCoursesArr) : courseArr} renderItem={(ele)=>
+      <ListItem courseData={ele.item} showPopular={showPopular}/>
     }/>
     </>
   )

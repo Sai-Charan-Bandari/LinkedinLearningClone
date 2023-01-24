@@ -80,7 +80,7 @@ return(
        <Text style={{fontSize:16,alignSelf:'center',marginLeft:10}}>{coursesListPage}</Text>
         </View>
       {/* menu to filter list */}
-      <VerticalList coursesType={coursesListPage} showFilter={true}/>
+      <VerticalList coursesType={coursesListPage} showPopular={true} courseArr={[]} showFilter={true}/>
     </View>
   )
 }
