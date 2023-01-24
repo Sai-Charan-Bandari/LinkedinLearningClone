@@ -28,9 +28,10 @@ const CourseTopMenu = ({setShowCertificate}) => {
             <TouchableOpacity style={{margin:5}} onPress={()=>{setShowCertificate(true);setShowModal(false)}}>
                 <Text>Show Certificates</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{margin:5}}>
+            {/* this option is missing in some courses */}
+            {/* <TouchableOpacity style={{margin:5}}>
                 <Text>Add to Profile</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity style={{margin:5}}>
                 <Text>Streaming Quality: High</Text>
             </TouchableOpacity>

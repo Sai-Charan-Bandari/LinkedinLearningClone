@@ -1,7 +1,8 @@
 need to make hiding menubar warnings free
 Prob in contents, (still need to pass data.contents (course contents) via props) (alt: use accordions)
-
+############### why not use alert as modal?
 #CourseFilter in VerticalList
+#switches problm in settings
 #need to update Profile,Settings
 # in MenuBar2, clicking on search button should display a modal over the screens...in App.js...but not in the MenuBar2 itself
  ... it will simply push the Lists in Screen if we place it within the MenuBaar2
