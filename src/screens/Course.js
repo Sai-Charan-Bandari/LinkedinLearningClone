@@ -1,17 +1,19 @@
-import { StyleSheet, Text, View,TouchableOpacity, FlatList ,Button,Alert,Image} from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity, FlatList ,Button,Alert,Image,Switch} from 'react-native'
 import React, { useState ,useEffect} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { Video, AVPlaybackStatus } from 'expo-av';
 import { useRoute } from '@react-navigation/native';
 import Contents from './Contents';
 import Overview from './Overview';
+import CourseTopMenu from './CourseTopMenu';
+import Certificates from './Certificates';
 
 // const data=useRoute().params //same as useParams in react
 
 // NOTE: Whenever we enter Course comp we setShowMenu to false and whenever we go back from this Screen we will set it back to true.
 // Hence other comps will not need to setShowMenu to true again.
 const Course = (props) => {
-  const nav=useNavigation()
+  
   //when i kept this statement within useEffect ..it didnt work indicating that the render occurred before the useEffect was called
   const data=props.route.params.data
   // console.log(data)
@@ -49,16 +51,28 @@ const Course = (props) => {
     // 3:// q+a
     
     const [iconCheckBoxes,setIconCheckBoxes]=useState({like:false,save:false})
+    const [showCertificate,setShowCertificate]=useState(false)
+    
 
   return (
     <View>
+    {!showCertificate
+      ?
+    <View>
       {/* this button may not be clicked*/}
-      <Button title="go back" onPress={()=>{
-        nav.goBack()}}></Button>
+      {/* <Button title="go back" onPress={()=>{
+        nav.goBack()}}></Button> */}
 
         {/* Video */}
 
+        {/* i placed the top menu beneath the Image bcoz.. 
+        the top menu's position is absolute and needs to be displayed on top of the image tag(video).
+        if the menu is written above Image comp then it is found that the Image comp got rendered on top of the menu
+        so i wrote Image 1st, then the menu comp */} 
         <Image style={{height:280,width:'100%'}} source={{uri:data.image}}></Image>
+
+        {/* TOP MENU FOR COURSE COMP */}
+        <CourseTopMenu setShowCertificate={setShowCertificate}/>
 
         {/* <Video
         ref={video}
@@ -137,6 +151,10 @@ const Course = (props) => {
          {menu==3 && <FlatList data={['3333ghfjakfa','hdkfhajdfl','ajkhfakfa','ajhfakjhfka','akjflakfjak','akfkaljla','akdja']}
           renderItem={(ele)=><Text>{ele.item}</Text>
     }     />}     
+    </View>
+    :
+    <Certificates setShowCertificate={setShowCertificate}/>
+    }
     </View>
   )
 }

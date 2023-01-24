@@ -38,7 +38,7 @@ export default function App() {
         {showMenu && <MenuBar2 isNotifications={isNotifications}/>}
         {/* <Stack.Navigator initialRouteName='Home' > */}
         <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}} >
-          <Stack.Screen name='Home' component={Home} initialParams={{scroll:scroll,setScroll:setScroll}} />
+          <Stack.Screen name='Home' component={Home} initialParams={{scroll:scroll}} />
           <Stack.Screen name='MyLearning' component={MyLearning} initialParams={{scroll:scroll}}/>
           <Stack.Screen name='Course' component={Course} initialParams={{setShowMenu:setShowMenu}}/>
           <Stack.Screen name='Topics' component={Topics} />

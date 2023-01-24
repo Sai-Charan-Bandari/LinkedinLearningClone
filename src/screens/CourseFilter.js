@@ -10,7 +10,7 @@ let filterArr=[
 
 const BottomModal=({setShowModal,showModal:{key,arr}})=>{
     return(
-        <Modal animationType='slide'>
+        <Modal animationType='slide' transparent={true}>
         <TouchableOpacity style={{backgroundColor:'#00000080',width:'100%',height:'100%'}} onPress={()=>setShowModal(null)}>
             <TouchableOpacity style={{backgroundColor:'white',marginTop:'auto'}} onPress={()=>setShowModal(null)}>
             <Image style={{width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/32/32320.png"}} />
