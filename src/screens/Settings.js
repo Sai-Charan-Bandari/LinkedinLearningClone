@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View,TouchableOpacity, FlatList ,Alert,Image,Switch, ScrollView,Linking} from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity, FlatList ,Image,Switch, ScrollView,Linking,Alert} from 'react-native'
 import React,{useState,useEffect} from 'react'
 import { useNavigation } from '@react-navigation/native'
 import TopMenu from './TopMenu'
 
 // LINKING IS USED TO OPEN HYPERLINKS/URLS
 // SWITCH USES onValueChange property but not onChange
-
+//Alert has 4th parameter i.e, alert options : in this obj i set cancelable to true...so that if we tap outside of alert box..it will close the alert box
 
 const Settings = (props) => {
   
@@ -44,143 +44,147 @@ useEffect(()=>{
     {/* body */}
     <ScrollView style={{height:'95%'}}>
     <View>
-      <Text>Your Account</Text>
-      <TouchableOpacity style={{margin:20}}>
-      <Text>Switch Accounts</Text>
-      <Text>Personal Account</Text>
+      <Text style={styles.bluehead}>Your Account</Text>
+      <TouchableOpacity style={{margin:20}} onPress={()=>Alert.alert('Switch accounts','Personal Account',
+      [{
+        text:'CANCEL'
+      }], {cancelable:true} //this is the last parameter..i.e, alert options : in this obj i set cancelable to true...so that if we tap outside of alert box..it will close the alert box
+      )}>
+      <Text style={styles.blackhead}>Switch Accounts</Text>
+      <Text style={styles.smalltext}>Personal Account</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20}}>
-      <Text>Account type: Enterprise Learning</Text>
-      <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque, cumque architecto facere eveniet. Culpa, saepe facilis!</Text>
-    <Text onPress={()=>Linking.openURL('https://google.com')}>See more</Text>
+      <Text style={styles.blackhead}>Account type: Enterprise Learning</Text>
+      <Text  style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque, cumque architecto facere eveniet. Culpa, saepe facilis!</Text>
+    <Text style={styles.underlined} onPress={()=>Linking.openURL('https://google.com')}>See more</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}}>
-      <Text>Sync my learning activity</Text>
-      <View style={styles.container}>
-      <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque, cumque architecto facere eveniet. Culpa, saepe facilis!</Text>
+      <Text style={styles.blackhead}>Sync my learning activity</Text>
+      <View style={{display: "flex",flexDirection: "row"}}>
+      <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque, cumque architecto facere eveniet. Culpa, saepe facilis!</Text>
       <Switch value={switchVal[0]} onValueChange={toggle(0)}></Switch>
       </View>
-    <Text onPress={()=>Linking.openURL('https://google.com')}>Learn more</Text>
+    <Text style={styles.underlined} onPress={()=>Linking.openURL('https://google.com')}>Learn more</Text>
       </TouchableOpacity>
 
-      <Text>Consumption Preferences</Text>
+      <Text style={styles.bluehead}>Consumption Preferences</Text>
       {/* alert/modal setter */}
       <TouchableOpacity style={{margin:20}}>
-      <Text>Content Language</Text>
-      <Text>English</Text>
-      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, aperiam illo omnis voluptatibus officiis deserunt inventore, voluptas eligendi obcaecati est error beatae autem quae ut nesciunt. Asperiores facere eaque rerum et nostrum iste perspiciatis molestiae minima consequatur autem! Asperiores, sequi ab! Voluptates quibusdam voluptatibus non incidunt. Minus cumque hic quaerat.</Text>
+      <Text style={styles.blackhead}>Content Language</Text>
+      <Text  style={styles.smalltext}>English</Text>
+      <Text  style={styles.smalltext}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, aperiam illo omnis voluptatibus officiis deserunt inventore, voluptas eligendi obcaecati est error beatae autem quae ut nesciunt. Asperiores facere eaque rerum et nostrum iste perspiciatis molestiae minima consequatur autem! Asperiores, sequi ab! Voluptates quibusdam voluptatibus non incidunt. Minus cumque hic quaerat.</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20}}>
-      <Text>Autoplay</Text>
-      <View style={styles.container}>
-      <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
+      <Text style={styles.blackhead}>Autoplay</Text>
+      <View style={{display: "flex",flexDirection: "row"}}>
+      <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
       <Switch value={ switchVal[1]} onValueChange={toggle(1)}></Switch>
       </View>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20}}>
-      <Text>Autoplay videos on course preview</Text>
-      <View style={styles.container}>
-      <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
+      <Text style={styles.blackhead}>Autoplay videos on course preview</Text>
+      <View style={{display: "flex",flexDirection: "row"}}>
+      <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
       <Switch value={ switchVal[1]} onValueChange={toggle(1)}></Switch>
       </View>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20}}>
-      <Text>Background Play</Text>
-      <View style={styles.container}>
-      <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
+      <Text style={styles.blackhead}>Background Play</Text>
+      <View style={{display: "flex",flexDirection: "row"}}>
+      <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
       <Switch value={ switchVal[1]} onValueChange={toggle(1)}></Switch>
       </View>
       </TouchableOpacity>
       {/* alert/modal setter */}
       <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}}>
-      <Text>Streaming Quality</Text>
-      <Text>High</Text>
+      <Text style={styles.blackhead}>Streaming Quality</Text>
+      <Text style={styles.smalltext}>High</Text>
       </TouchableOpacity>
 
-      <Text>Social</Text>
+      <Text style={styles.bluehead}>Social</Text>
       <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}}>
-      <Text>Social</Text>
-      <View style={styles.container}>
-      <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque,</Text>
+      <Text style={styles.blackhead}>Social</Text>
+      <View style={{display: "flex",flexDirection: "row"}}>
+      <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque,</Text>
       <Switch value={switchVal[0]} onValueChange={toggle(0)}></Switch>
       </View>
-    <Text onPress={()=>Linking.openURL('https://google.com')}>Learn more</Text>
+    <Text style={styles.underlined} onPress={()=>Linking.openURL('https://google.com')}>Learn more</Text>
       </TouchableOpacity>
 
-      <Text>Downloads</Text>
+      <Text style={styles.bluehead}>Downloads</Text>
       <TouchableOpacity style={{margin:20,}}>
-      <Text>View Downloads</Text>
-      <Text>See all your downloaded content</Text>
+      <Text style={styles.blackhead}>View Downloads</Text>
+      <Text style={styles.smalltext}>See all your downloaded content</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,}}>
-      <Text>Downloads Quality</Text>
-      <Text>Medium</Text>
+      <Text style={styles.blackhead}>Downloads Quality</Text>
+      <Text style={styles.smalltext}>Medium</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[{margin:20},styles.container]}>
-      <Text>Allow Cellular Downloads</Text>
+      <TouchableOpacity style={{display: "flex",flexDirection: "row",marginLeft:20}}>
+      <Text style={styles.blackhead}>Allow Cellular Downloads</Text>
       <Switch value={ switchVal[1]} onValueChange={toggle(1)}></Switch>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}}>
         {/* alert/modal setter */}
-      <Text>Downloads Location</Text>
-      <Text>Internal Storage</Text>
+      <Text style={styles.blackhead}>Downloads Location</Text>
+      <Text style={styles.smalltext}>Internal Storage</Text>
       </TouchableOpacity>
       </View>
 
 
-      <Text >Storage Information</Text>
-      <View style={{ display:'flex',flexDirection:'row',}}>
+      <Text style={[styles.blackhead,{marginLeft:20}]}>Storage Information</Text>
+      <View style={{ display:'flex',flexDirection:'row',marginLeft:20}}>
         <View style={{height:13,width:'10%',backgroundColor:'blue', }}></View>
-        <View style={{height:13,width:'70%',backgroundColor:'skyblue', }}></View>
-        <View style={{height:13,width:'20%',backgroundColor:'grey', }}></View>
+        <View style={{height:13,width:'60%',backgroundColor:'skyblue', }}></View>
+        <View style={{height:13,width:'25%',backgroundColor:'grey', }}></View>
       </View>
-    <ScrollView style={{height:'50%'}} horizontal={true} showsHorizontalScrollIndicator={false}>
+    <ScrollView style={{height:'50%',marginLeft:10}} horizontal={true} showsHorizontalScrollIndicator={false}>
     <View style={styles.container}>
       <View style={{height:13,width:13,backgroundColor:'blue',alignSelf:'center',marginRight:5 }} ></View>
-      <Text>Used : 46 GB</Text>
+      <Text style={styles.smalltext}>Used : 46 GB</Text>
     </View>
     <View style={styles.container}>
     <View style={{height:13,width:13,backgroundColor:'skyblue',alignSelf:'center',marginRight:5 }}/>
-      <Text>Learning : 160 MB</Text>
+      <Text style={styles.smalltext}>Learning : 160 MB</Text>
     </View>
     <View style={styles.container}>
     <View style={{height:13,width:13,backgroundColor:'grey',alignSelf:'center',marginRight:5 }}/>
-      <Text>Free : 2.1 GB</Text>
+      <Text style={styles.smalltext}>Free : 2.1 GB</Text>
     </View>
     </ScrollView>
 
-    <Text style={{margin:20,borderTopWidth:1,borderColor:'lightgrey'}}>Notifications</Text>
+    <Text style={[{margin:20,borderTopWidth:1,borderColor:'lightgrey'},styles.bluehead]}>Notifications</Text>
     <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}}>
-      <Text>Manage notificcations</Text>
-      <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, necessitatibus?</Text>
+      <Text style={styles.blackhead}>Manage notificcations</Text>
+      <Text style={styles.smalltext}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, necessitatibus?</Text>
       </TouchableOpacity>
 
-      <Text>About</Text>
+      <Text style={styles.bluehead}>About</Text>
       <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}}>
-      <Text>Linkedin Learning Version</Text>
-      <Text>0.234.5</Text>
+      <Text style={styles.blackhead}>Linkedin Learning Version</Text>
+      <Text style={styles.smalltext}>0.234.5</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,}}>
-      <Text>Help Center</Text>
+      <Text style={styles.blackhead}>Help Center</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,}}>
-      <Text>Privacy policy</Text>
+      <Text style={styles.blackhead}>Privacy policy</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,}}>
-      <Text>Accessibility</Text>
+      <Text style={styles.blackhead}>Accessibility</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,}}>
-      <Text>User agreement</Text>
+      <Text style={styles.blackhead}>User agreement</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,}}>
-      <Text>End user agreement</Text>
+      <Text style={styles.blackhead}>End user agreement</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,}}>
-      <Text>Additional terms</Text>
+      <Text style={styles.blackhead}>Additional terms</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,}}>
-      <Text>Sign out</Text>
-      <Text>Signed in as Sai Charan Bandari</Text>
+      <Text style={styles.blackhead}>Sign out</Text>
+      <Text style={styles.smalltext}>Signed in as Sai Charan Bandari</Text>
       </TouchableOpacity>
   </ScrollView>
     </View>
@@ -197,4 +201,25 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     padding:10
 },
+bluehead:{
+  color:'#0077b5',
+  fontSize:14,
+  fontWeight:'500',
+  marginLeft:20
+},
+blackhead:{
+  fontSize:16,
+  // fontWeight:'500'
+},
+underlined:{
+  fontSize:14,
+  color:'#0077b5',
+  textDecorationLine:'underline'
+},
+smalltext:{
+  // fontSize:12,
+  color:'grey',
+
+}
+
 })

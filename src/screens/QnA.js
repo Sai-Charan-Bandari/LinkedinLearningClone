@@ -26,7 +26,6 @@ const Qmodal=({setShowModal})=>{
 
 
 const QnA = () => {
-    // let [showAnswerPage,setShowAnswerPage]=useState(false)
   return (
     <FlatList style={{height:460}} data={QnA_Array}
           renderItem={(ele)=>

@@ -4,6 +4,8 @@ import { Qmodal } from './QnA'
 import { useNavigation } from '@react-navigation/native'
 
 const QnA_Card = ({item,enableNavigation}) => {
+    //enableNavigation is true if the QnA_Card is called from QnA page in Course page, bcoz we need to navigate to Answer page
+    // false if it is of Answer Page, bcoz we dont need to navigate to Answer page
     const {image,name,time,description,question,fromTheVideo,noOfAnswers,noOfLikes}=item
     const [showModal,setShowModal]=useState(false)
     const [like,setLike]=useState(false)
@@ -14,6 +16,9 @@ const QnA_Card = ({item,enableNavigation}) => {
         if(question.length<150)
         setShowMore(true)
     },[])
+    useEffect(()=>{
+        console.log('showModal set to ',showModal)
+    },[showModal])
   return (
     <View style={{borderBottomColor:'lightgrey',borderBottomWidth:10,paddingTop:15}}>
     {showModal && <Qmodal setShowModal={setShowModal} />}

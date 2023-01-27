@@ -1,9 +1,9 @@
 need to make hiding menubar warnings free
 Prob in contents, (still need to pass data.contents (course contents) via props) (alt: use accordions)
 ############### why not use alert as modal?
-#Not sure but ... the modal of List in Home gets activated automatically while navigating back from something in course comp
+#how to place radio buttons in alert ###required for settings page
+#Not sure but ... the modal of List in Home gets activated automatically while navigating back from something in course comp,or while coming back from another app
 #problms in QnA, modal in Qna
-#navigate back of Certificate comp ..goes back to MyLearning instead of Course comp
 #CourseFilter in VerticalList
 #switches problm in settings
 #need to update Profile,Settings
@@ -18,4 +18,5 @@ Prob in contents, (still need to pass data.contents (course contents) via props)
  -Close button of modal in List is now shifted to top-left
  -Resolved issue : 'when coming back from Course comp to MyLearning the menubar is highlighting Home button'
  -Resolved issue : 'when coming back from Course comp to VerticalList in Profile comp the menubar shows up' (Passed props to Course comp indicating that it was called by VerticalList and added an if statement at destruction useEffect code to ensure that the setShowMenu(true) did not occur if isVerticalList==true. Also removed a button which setShowMenu to true.
+ -Resolved issue : 'when coming back from Certificates comp ,we r moving back to Home/MyLearning page instead of Course page'
  
