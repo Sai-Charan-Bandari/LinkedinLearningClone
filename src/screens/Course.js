@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View,TouchableOpacity, FlatList ,Button,Alert,Image,Switch} from 'react-native'
 import React, { useState ,useEffect} from 'react'
-import { useNavigation } from '@react-navigation/native';
-import { Video, AVPlaybackStatus } from 'expo-av';
-import { useRoute } from '@react-navigation/native';
+// import { useNavigation } from '@react-navigation/native';
+// import { Video, AVPlaybackStatus } from 'expo-av';
+// import { useRoute } from '@react-navigation/native';
 import Contents from './Contents';
 import Overview from './Overview';
 import CourseTopMenu from './CourseTopMenu';
 import Certificates from './Certificates';
+import QnA from './QnA';
 
 // const data=useRoute().params //same as useParams in react
 
@@ -148,9 +149,8 @@ const Course = (props) => {
          {menu==1 && <Overview data={data}/>}  
           {/*we need to pass only the contents array of the course obj... but i've not yet created contents array for each course obj..hence i am passing whole course data  */}
          {menu==2 && <Contents arr={data}/>}   
-         {menu==3 && <FlatList data={['3333ghfjakfa','hdkfhajdfl','ajkhfakfa','ajhfakjhfka','akjflakfjak','akfkaljla','akdja']}
-          renderItem={(ele)=><Text>{ele.item}</Text>
-    }     />}     
+         {/*we need to pass the qna array of the course obj which contains all question details and array of answers... but i've not yet created this array */}
+         {menu==3 && <QnA />}     
     </View>
     :
     <Certificates setShowCertificate={setShowCertificate}/>

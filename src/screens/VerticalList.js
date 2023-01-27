@@ -5,7 +5,7 @@ import { newCoursesArr } from '../data/Arrays'
 import CourseFilter from './CourseFilter'
 
 const ListItem=(props)=>{
-  console.log('showPopular is founnd tp be',props.showPopular)
+  
     const nav=useNavigation()
     const [saveCourse,setSaveCourse]=useState(false)
     return(

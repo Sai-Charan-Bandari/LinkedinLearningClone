@@ -43,7 +43,7 @@ const Contents = ({arr}) => {
   return (
     // dont place scrollview inside view...it led to improper scrolling
     //i had to set the height of flatlist such that it exactly fit into the remaining screen size and did not extend out of the screen
-       <FlatList style={{height:420}} data={['introduction','chapp1','chapp2','chapp3','chapp4','chapp1','chapp1','chapp1']}
+       <FlatList style={{height:460}} data={['introduction','chapp1','chapp2','chapp3','chapp4','chapp1','chapp1','chapp1']}
           renderItem={(ele)=>
             <Chapter  name={ele.item} no={ele.index} sectionsArr={[{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:true},{topic:'s1ghfjakfa',done:false},{topic:'s1ghfjakfa',done:false},{topic:'Chapter Quiz',done:false},]}/>
           }     

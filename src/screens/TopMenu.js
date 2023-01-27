@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View ,TouchableOpacity,Image} from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 // THIS IS THE TOP MENU FOR SUBCOMPONENTS
 //WHICH DONOT HAVE MENUBARS
 //THIS MENU PROVIDES A NAVIGATE BACK BUTTON AND NAME OF THE COMP
 const TopMenu = ({name}) => {
+    let nav=useNavigation()
   return (
     <View style={[{backgroundColor:'#0077b5',padding:10},styles.container]}>
         <TouchableOpacity onPress={()=>nav.goBack()}>

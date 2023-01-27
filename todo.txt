@@ -1,6 +1,7 @@
 need to make hiding menubar warnings free
 Prob in contents, (still need to pass data.contents (course contents) via props) (alt: use accordions)
 ############### why not use alert as modal?
+#problms in QnA
 #CourseFilter in VerticalList
 #switches problm in settings
 #need to update Profile,Settings

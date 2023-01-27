@@ -6,7 +6,7 @@ const Overview = ({data}) => {
   const [showFullDesc,setShowFullDesc]=useState(false)
   return (
     //i had to set the height of flatlist such that it exactly fit into the remaining screen size and did not extend out of the screen
-    <ScrollView style={{paddingLeft:20,height:420}}>
+    <ScrollView style={{paddingLeft:20,height:460}}>
       <Text>{data.time}.{data.date}</Text>
       <Text>{showFullDesc ? data.description : data.description.substring(0,120)}
       </Text>

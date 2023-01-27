@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View,FlatList,Image,Modal,Pressable,Alert } from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 import React,{useState} from  'react'
+import TopMenuWithVerticalList from './TopMenuWithVerticalList'
 
 const MyModal=({modalVisible,setModalVisible,modalData})=>{
     const [save,setSave]=useState(false)
@@ -58,6 +59,7 @@ const List = (props) => {
     const navigtion = useNavigation()
     const [modalVisible, setModalVisible] = useState(false);
     const [modalData, setModalData] = useState({});
+
   return (
       <View style={styles.list}>
         <MyModal modalVisible={modalVisible} setModalVisible={setModalVisible} modalData={modalData} />
@@ -66,7 +68,9 @@ const List = (props) => {
       <View style={styles.container}>
             <Text style={styles.heading}>{props.heading}</Text>
             {props.showSeeAll && 
-            <TouchableOpacity style={styles.seeall}>
+            <TouchableOpacity style={styles.seeall} onPress={()=>
+            navigtion.navigate('TopMenuWithVerticalList',{name:props.heading, coursesType:'' ,showFilter:false ,courseArr:props.arr ,showPopular:false})
+            }>
             <Text style={{color:'blue'}}>SEE ALL ({props.arr.length})</Text>
             </TouchableOpacity>}
       </View>
