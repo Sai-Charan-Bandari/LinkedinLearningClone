@@ -52,13 +52,9 @@ const Course = (props) => {
     // 3:// q+a
     
     const [iconCheckBoxes,setIconCheckBoxes]=useState({like:false,save:false})
-    const [showCertificate,setShowCertificate]=useState(false)
-    
 
   return (
-    <View>
-    {!showCertificate
-      ?
+  
     <View>
       {/* this button may not be clicked*/}
       {/* <Button title="go back" onPress={()=>{
@@ -73,7 +69,7 @@ const Course = (props) => {
         <Image style={{height:280,width:'100%'}} source={{uri:data.image}}></Image>
 
         {/* TOP MENU FOR COURSE COMP */}
-        <CourseTopMenu setShowCertificate={setShowCertificate}/>
+        <CourseTopMenu />
 
         {/* <Video
         ref={video}
@@ -151,10 +147,6 @@ const Course = (props) => {
          {menu==2 && <Contents arr={data}/>}   
          {/*we need to pass the qna array of the course obj which contains all question details and array of answers... but i've not yet created this array */}
          {menu==3 && <QnA />}     
-    </View>
-    :
-    <Certificates setShowCertificate={setShowCertificate}/>
-    }
     </View>
   )
 }

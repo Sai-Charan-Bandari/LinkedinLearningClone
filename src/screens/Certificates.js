@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View,Switch,TouchableOpacity,Image,Modal } from 'react-native'
 import React from 'react'
 import TopMenu from './TopMenu'
-
-const Certificates = ({setShowCertificate}) => {
+import { useNavigation } from '@react-navigation/native'
+const Certificates = () => {
+  const nav=useNavigation()
   return (
     <View>
         {/* top menu */}
@@ -15,7 +16,7 @@ const Certificates = ({setShowCertificate}) => {
             <Text>Complete the course to earn this.</Text>
         </View>
     {/* download option */}
-    <TouchableOpacity  onPress={()=>{setShowCertificate(false)}}>
+    <TouchableOpacity  onPress={()=>{nav.goBack()}}>
       <Image style={{height:30,width:30}} source={{uri:"https://cdn-icons-png.flaticon.com/128/9429/9429043.png"}}></Image>
     </TouchableOpacity>
     </View>

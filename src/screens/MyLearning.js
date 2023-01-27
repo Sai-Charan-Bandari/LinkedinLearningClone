@@ -35,7 +35,7 @@ const MyLearning = (props) => {
             <View style={[styles.container,{marginBottom:25}]}>
                 {/* Circular progress bar */}
                <View style={{margin:10,borderWidth:1,paddingTop:10,borderRadius:50,height:80,width:80}}>
-                <Text style={{fontSize:17,fontWeight:'500',marginLeft:6,borderWidth:1,paddingTop:20,paddingLeft:10,borderRadius:50,height:65,width:65}}>0/30</Text>
+                <Text style={{fontSize:17,fontWeight:'500',position:'relative',bottom:3,left:6,borderWidth:1,paddingTop:20,paddingLeft:10,borderRadius:50,height:65,width:65}}>0/30</Text>
                </View>
                 <View>
                     <Text style={{fontSize:13,fontWeight:'300',marginBottom:5}}>Jan 9 to Jan 15</Text>

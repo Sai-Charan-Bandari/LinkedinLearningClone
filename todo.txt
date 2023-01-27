@@ -1,7 +1,9 @@
 need to make hiding menubar warnings free
 Prob in contents, (still need to pass data.contents (course contents) via props) (alt: use accordions)
 ############### why not use alert as modal?
-#problms in QnA
+#Not sure but ... the modal of List in Home gets activated automatically while navigating back from something in course comp
+#problms in QnA, modal in Qna
+#navigate back of Certificate comp ..goes back to MyLearning instead of Course comp
 #CourseFilter in VerticalList
 #switches problm in settings
 #need to update Profile,Settings

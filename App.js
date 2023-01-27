@@ -14,6 +14,7 @@ import MenuBar2 from './src/screens/MenuBar2';
 import Settings from './src/screens/Settings';
 import TopMenuWithVerticalList from './src/screens/TopMenuWithVerticalList';
 import Answer from './src/screens/Answer';
+import Certificates from './src/screens/Certificates';
 
 const Stack = createNativeStackNavigator()
 
@@ -48,6 +49,7 @@ export default function App() {
           <Stack.Screen name='Profile' component={Profile} initialParams={{setShowMenu:setShowMenu}}/>
           <Stack.Screen name='Settings' component={Settings} initialParams={{setShowMenu:setShowMenu}}/>
           <Stack.Screen name='Answer' component={Answer} />
+          <Stack.Screen name='Certificates' component={Certificates} />
           <Stack.Screen name='TopMenuWithVerticalList' component={TopMenuWithVerticalList} initialParams={{setShowMenu:setShowMenu}}/>
         </Stack.Navigator>
         {showMenu && <MenuBar  scroll={scroll} setScroll={setScroll} menuItem={menuItem} setMenuItem={setMenuItem} setIsNotifications={setIsNotifications} isNotifications={isNotifications}/>}

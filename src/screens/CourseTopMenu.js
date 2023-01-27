@@ -2,14 +2,14 @@ import { StyleSheet, Text, View,Switch,TouchableOpacity,Image,Modal } from 'reac
 import React ,{useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 
-const CourseTopMenu = ({setShowCertificate}) => {
+const CourseTopMenu = () => {
     const nav=useNavigation()
     const [switchVal,setSwitchVal]=useState(false)
     const [showModal,setShowModal]=useState(false)
     
   return (
     <View style={[styles.container,{position:'absolute',top:10,width:'100%'}]}>
-    <TouchableOpacity  onPress={()=>{nav.goBack()}}>
+    <TouchableOpacity  onPress={()=>{nav.goBack()}} style={{marginLeft:10}}>
       {/* flipped imgae horizontally */}
       <Image style={{height:30,width:30,transform:[{scaleX:(-1)}] }} source={{uri:"https://cdn-icons-png.flaticon.com/128/7466/7466366.png"}}></Image>
     </TouchableOpacity>
@@ -25,7 +25,10 @@ const CourseTopMenu = ({setShowCertificate}) => {
         <TouchableOpacity style={{width:'100%',height:'100%'}} onPress={()=>setShowModal(false)}>
 
         <View style={{borderRadius:5,backgroundColor:'white',width:'60%',padding:10,marginLeft:'auto'}}>
-            <TouchableOpacity style={{margin:5}} onPress={()=>{setShowCertificate(true);setShowModal(false)}}>
+            <TouchableOpacity style={{margin:5}} onPress={()=>{
+                setShowModal(false);
+       ////////////         //we need to pass certificate details
+                nav.navigate('Certificates')}}>
                 <Text>Show Certificates</Text>
             </TouchableOpacity>
             {/* this option is missing in some courses */}
