@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View ,Image,TouchableOpacity,FlatList,Button,Modal} from 'react-native'
+import { StyleSheet, Text, View ,Image,TouchableOpacity,FlatList,Button,Modal,Linking} from 'react-native'
 import React,{useEffect,useState} from 'react'
 import EditSkills from './EditSkills'
 import VerticalList from './VerticalList'
@@ -39,7 +39,7 @@ const Profile = (props) => {
         </View>
       <Image style={{height:100,width:100,position:'absolute',top:50,alignSelf:'center',borderWidth:5,borderRadius:50,borderColor:'white'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/9131/9131529.png"}}></Image>
       <Text style={{marginTop:'13%',marginBottom:20,fontSize:22}}>Sai Charan Bandari</Text>
-      <TouchableOpacity style={{borderColor:'blue',borderRadius:4,borderWidth:1,padding:10,marginBottom:20}}>
+      <TouchableOpacity onPress={()=>Linking.openURL('https://linkedin.com')} style={{borderColor:'blue',borderRadius:4,borderWidth:1,padding:10,marginBottom:20}}>
         <Text style={{color:'blue',fontSize:15}}>VIEW ON LINKEDIN</Text>
       </TouchableOpacity>
 
