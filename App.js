@@ -69,3 +69,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+{/* <>
+     <VideoPlayer video={{uri:"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}}
+     autoplay={false}
+     defaultMuted={true}
+     videoWidth={1500}
+     videoHeight={1000}>
+      </VideoPlayer> 
+    </> */}

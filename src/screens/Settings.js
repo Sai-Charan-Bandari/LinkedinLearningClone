@@ -21,10 +21,10 @@ const Settings = (props) => {
   },[])
 
   // func to toggle switches
-  const toggle=(i)=>{
-    // let k=switchVal
-    // k[i]=!switchVal[i]
-    // setSwitchVal(k)
+  function toggle(i){
+    let k=[...switchVal]
+    k[i]=!switchVal[i]
+    setSwitchVal(k)
   }
 
 //called when Settings screen is destroyed
@@ -62,7 +62,7 @@ useEffect(()=>{
       <Text style={styles.blackhead}>Sync my learning activity</Text>
       <View style={{display: "flex",flexDirection: "row"}}>
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque, cumque architecto facere eveniet. Culpa, saepe facilis!</Text>
-      <Switch value={switchVal[0]} onValueChange={toggle(0)}></Switch>
+      <Switch value={switchVal[0]} onValueChange={()=>toggle(0)}></Switch>
       </View>
     <Text style={styles.underlined} onPress={()=>Linking.openURL('https://google.com')}>Learn more</Text>
       </TouchableOpacity>
@@ -78,21 +78,21 @@ useEffect(()=>{
       <Text style={styles.blackhead}>Autoplay</Text>
       <View style={{display: "flex",flexDirection: "row"}}>
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
-      <Switch value={ switchVal[1]} onValueChange={toggle(1)}></Switch>
+      <Switch value={ switchVal[1]} onValueChange={()=>toggle(1)}></Switch>
       </View>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20}}>
       <Text style={styles.blackhead}>Autoplay videos on course preview</Text>
       <View style={{display: "flex",flexDirection: "row"}}>
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
-      <Switch value={ switchVal[1]} onValueChange={toggle(1)}></Switch>
+      <Switch value={ switchVal[1]} onValueChange={()=>toggle(2)}></Switch>
       </View>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20}}>
       <Text style={styles.blackhead}>Background Play</Text>
       <View style={{display: "flex",flexDirection: "row"}}>
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
-      <Switch value={ switchVal[1]} onValueChange={toggle(1)}></Switch>
+      <Switch value={ switchVal[1]} onValueChange={()=>toggle(3)}></Switch>
       </View>
       </TouchableOpacity>
       {/* alert/modal setter */}
@@ -106,7 +106,7 @@ useEffect(()=>{
       <Text style={styles.blackhead}>Social</Text>
       <View style={{display: "flex",flexDirection: "row"}}>
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque,</Text>
-      <Switch value={switchVal[0]} onValueChange={toggle(0)}></Switch>
+      <Switch value={switchVal[0]} onValueChange={()=>toggle(4)}></Switch>
       </View>
     <Text style={styles.underlined} onPress={()=>Linking.openURL('https://google.com')}>Learn more</Text>
       </TouchableOpacity>
@@ -122,7 +122,7 @@ useEffect(()=>{
       </TouchableOpacity>
       <TouchableOpacity style={{display: "flex",flexDirection: "row",marginLeft:20}}>
       <Text style={styles.blackhead}>Allow Cellular Downloads</Text>
-      <Switch value={ switchVal[1]} onValueChange={toggle(1)}></Switch>
+      <Switch value={ switchVal[1]} onValueChange={()=>toggle(5)}></Switch>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}}>
         {/* alert/modal setter */}

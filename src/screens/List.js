@@ -19,7 +19,7 @@ const MyModal=({modalVisible,setModalVisible,modalData})=>{
             
             {/* THIS TOUCHABLEOPACITY IS THE MAIN COMP AND COVERS THE ENTIRE SCREEN AREA. CLICKING ON THIS WILL SIMPLY CLOSE THE MODAL */}
         <TouchableOpacity style={[{backgroundColor:'#00000080'},styles.centeredView]} onPress={()=>
-                    setModalVisible(!modalVisible)}>
+                    setModalVisible(false)}>
           {/* THIS TOUCHABLEOPACITY IS THE BODY OF THE COURSE CARD  */}
           <TouchableOpacity style={styles.modalView} onPress={()=>
                     navigation.navigate('Course',{data:modalData})}>
@@ -44,7 +44,7 @@ const MyModal=({modalVisible,setModalVisible,modalData})=>{
           </TouchableOpacity>
           {/* THIS PRESSABLE/BUTTON IS USED TO CLOSE THE MODAL. IT IS PLACED OUTSIDE THE COURSE CARD TOUCHABLEOPACITY AND WITHIN THE ROOT TOUCHABLEOPACITY, SO THAT IT CAN BE PLACED ANYWHERE ON THE ENTIRE SCREEN */}
             <Pressable style={{position:'absolute',top:0,left:15,backgroundColor:'white',width:20,height:20}}
-              onPress={() => setModalVisible(!modalVisible)}>
+              onPress={() => setModalVisible(false)}>
               <Text style={{alignSelf:'center'}}>X</Text>
         </Pressable>
         </TouchableOpacity>
@@ -81,7 +81,7 @@ const List = (props) => {
                     navigtion.navigate('Course',{data:ele.item})
                 }else{ //implies it is Home page
                     setModalData(ele.item)
-                    setModalVisible(!modalVisible)
+                    setModalVisible(true)
                 }
             }
         }>

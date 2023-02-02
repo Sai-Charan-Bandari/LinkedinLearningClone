@@ -6,8 +6,9 @@ import React, { useState ,useEffect} from 'react'
 import Contents from './Contents';
 import Overview from './Overview';
 import CourseTopMenu from './CourseTopMenu';
-import Certificates from './Certificates';
 import QnA from './QnA';
+// import Video from 'react-native-video';
+import { Video, AVPlaybackStatus} from 'expo-av'
 
 // const data=useRoute().params //same as useParams in react
 
@@ -15,6 +16,9 @@ import QnA from './QnA';
 // Hence other comps will not need to setShowMenu to true again.
 const Course = (props) => {
   
+  const video = React.useRef(null);
+  const [status, setStatus] = React.useState({});
+
   //when i kept this statement within useEffect ..it didnt work indicating that the render occurred before the useEffect was called
   const data=props.route.params.data
   // console.log(data)
@@ -56,9 +60,6 @@ const Course = (props) => {
   return (
   
     <View>
-      {/* this button may not be clicked*/}
-      {/* <Button title="go back" onPress={()=>{
-        nav.goBack()}}></Button> */}
 
         {/* Video */}
 
@@ -66,14 +67,13 @@ const Course = (props) => {
         the top menu's position is absolute and needs to be displayed on top of the image tag(video).
         if the menu is written above Image comp then it is found that the Image comp got rendered on top of the menu
         so i wrote Image 1st, then the menu comp */} 
-        <Image style={{height:280,width:'100%'}} source={{uri:data.image}}></Image>
+        {/* <Image style={{height:280,width:'100%'}} source={{uri:data.image}}></Image> */}
 
-        {/* TOP MENU FOR COURSE COMP */}
-        <CourseTopMenu />
-
-        {/* <Video
+       {/* VIDEO */}
+        <View >
+      <Video
         ref={video}
-        style={{height:1000,width:1000}}
+        style={styles.video}
         source={{
           uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4',
         }}
@@ -82,7 +82,8 @@ const Course = (props) => {
         isLooping
         onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
-      <View style={styles.buttons}>
+      {/* PLAY BUTTON */}
+      {/* <View style={styles.buttons}>
         <Button
           title={status.isPlaying ? 'Pause' : 'Play'}
           onPress={() =>
@@ -90,8 +91,11 @@ const Course = (props) => {
           }
         />
       </View> */}
+    </View>
 
-        {/*End of Video tags */}
+
+       {/* TOP MENU FOR COURSE COMP */}
+       <CourseTopMenu />
 
 
       <Text style={{fontWeight:'500',fontSize:17,alignSelf:'center'}}>{data.name}</Text>
@@ -160,6 +164,16 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         justifyContent:'space-evenly'
+    },
+    video: {
+      // alignSelf: 'center',
+      width:'100%',
+      height: 240,
+    },
+    buttons: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
 })
 

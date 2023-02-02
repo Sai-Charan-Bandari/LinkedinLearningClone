@@ -2,6 +2,7 @@ need to make hiding menubar warnings free
 Prob in contents, (still need to pass data.contents (course contents) via props) (alt: use accordions)
 ############### why not use alert as modal?
 #how to place radio buttons in alert ###required for settings page
+#video player not working...tried in app.js
 #Not sure but ... the modal of List in Home gets activated automatically while navigating back from something in course comp,or while coming back from another app
 #problms in QnA, modal in Qna
 #CourseFilter in VerticalList
