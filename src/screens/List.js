@@ -1,28 +1,23 @@
 import { StyleSheet, Text, TouchableOpacity, View,FlatList,Image,Modal,Pressable,Alert } from 'react-native'
 import {useNavigation} from '@react-navigation/native'
-import React,{useState} from  'react'
-import TopMenuWithVerticalList from './TopMenuWithVerticalList'
+import React,{useEffect, useState} from  'react'
 
-const MyModal=({modalVisible,setModalVisible,modalData})=>{
+const MyModal=({setModalVisible,modalData})=>{
     const [save,setSave]=useState(false)
     const navigation=useNavigation()
     return(
         <Modal
         hardwareAccelerated={true}
         animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-            //when we press the back button in the mobile/ swipe to go back ... then this func is executed
-            setModalVisible(!modalVisible);
-          }}>
+        transparent={true} >
             
             {/* THIS TOUCHABLEOPACITY IS THE MAIN COMP AND COVERS THE ENTIRE SCREEN AREA. CLICKING ON THIS WILL SIMPLY CLOSE THE MODAL */}
         <TouchableOpacity style={[{backgroundColor:'#00000080'},styles.centeredView]} onPress={()=>
                     setModalVisible(false)}>
           {/* THIS TOUCHABLEOPACITY IS THE BODY OF THE COURSE CARD  */}
-          <TouchableOpacity style={styles.modalView} onPress={()=>
-                    navigation.navigate('Course',{data:modalData})}>
+          <TouchableOpacity style={styles.modalView} onPress={()=>{
+          setModalVisible(false)
+                    navigation.navigate('Course',{data:modalData})}}>
           <Image style={{height:200,width:310,alignSelf:'center'}} source={{uri:modalData.image}}></Image>
             <View style={{marginLeft:20,width:290}} >
             <Text style={{fontWeight:'300',fontSize:12}}>COURSE</Text>
@@ -59,10 +54,13 @@ const List = (props) => {
     const navigtion = useNavigation()
     const [modalVisible, setModalVisible] = useState(false);
     const [modalData, setModalData] = useState({});
+    useEffect(()=>{
+      console.log('modalVisible set to :',modalVisible)
+    },[modalVisible])
 
   return (
       <View style={styles.list}>
-       {modalVisible && <MyModal modalVisible={modalVisible} setModalVisible={setModalVisible} modalData={modalData} />}
+       {modalVisible && <MyModal  setModalVisible={setModalVisible} modalData={modalData} />}
        
 
       <View style={styles.container}>
