@@ -149,7 +149,7 @@ const CourseFilter = ({filterParams,setFilterParams}) => {
                        ?  
                        ele.item.arr[arrIndex[ele.index]]
                        : //length>1 => multiple options have been selected
-                       `Type (${arrIndex[ele.index].length})`
+                       `${ele.item.key} (${arrIndex[ele.index].length})`
                     }
                 </Text> 
     <Image style={{marginLeft:10,width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/3992/3992458.png"}} />

@@ -6,6 +6,8 @@ Prob in contents, (still need to pass data.contents (course contents) via props)
 #CourseFilter in VerticalList change type
 #need to update Profile,settings
 #update notifications pg
+#edit page in weekly goal in MyLearning
+#video ,audio (different play,pause buttons)
 
  CHANGES:
  -ScrollToTop in MenuBar for Home and MyLearning
