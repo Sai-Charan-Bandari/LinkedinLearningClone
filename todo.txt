@@ -1,13 +1,12 @@
 need to make hiding menubar warnings free
-Prob in contents, (still need to pass data.contents (course contents) via props) (alt: use accordions)
+Contents pg (still need to pass data.contents (course contents) via props) (alt: use accordions)
 #how to place radio buttons in alert ###required for settings page
 #modal for settings page
-#problms in QnA, modal in Qna
-#CourseFilter in VerticalList change type
 #need to update Profile,settings
-#update notifications pg
-#edit page in weekly goal in MyLearning
+#edit page in weekly goal in MyLearning ####even after changing weeklyGoal still re-render does not occur
+  //probably a comp re-renders only if a state declared within itself is changed
 #video ,audio (different play,pause buttons)
+#video , audio take time to load
 
  CHANGES:
  -ScrollToTop in MenuBar for Home and MyLearning

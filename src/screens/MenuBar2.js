@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Image,TouchableOpacity ,Modal,TextInput, ScrollView,FlatList} from 'react-native'
+import { StyleSheet, Text, View,Image,TouchableOpacity ,Modal,TextInput, ScrollView,FlatList,Linking} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 import React, { useState,useRef } from 'react'
 
@@ -57,7 +57,9 @@ const MenuBar2 = ({isNotifications}) => {
         <SearchModal setShowSearch={setShowSearch}/>
         :
         <View style={{display:'flex',flexDirection:'row'}}>
-         <Image style={{width:120,height:20,margin:15}} source={{uri: "https://www.ajsnetworking.com/wp-content/uploads/2020/09/linkedin_learning.jpg"}} />
+            <TouchableOpacity style={{margin:15}} onPress={()=>Linking.openURL('https://github.com/Sai-Charan-Bandari/LinkedinLearningClone')}>
+         <Image style={{width:120,height:20}} source={{uri: "https://www.ajsnetworking.com/wp-content/uploads/2020/09/linkedin_learning.jpg"}} />
+            </TouchableOpacity>
             <TouchableOpacity style={{width:isNotifications ? '50%':'60%'}} onPress={()=>{
                 setShowSearch(true)
             }}>

@@ -19,11 +19,12 @@ const QnA_Card = ({item,enableNavigation}) => {
     useEffect(()=>{
         console.log('showQModal set to ',showQModal)
     },[showQModal])
+
   return (
     <View style={{borderBottomColor:'lightgrey',borderBottomWidth:10,paddingTop:15}}>
     {showQModal && <Qmodal setShowQModal={setShowQModal} />}
 
-    <TouchableOpacity style={[{alignItems:'center'},styles.container]} onPress={()=>Linking.openURL('https://linkedin.com')}>
+    <TouchableOpacity style={[{alignItems:'center'},styles.container]} onPress={()=>Linking.openURL('https://github.com/Sai-Charan-Bandari')}>
     <Image style={{height:45,width:45,borderRadius:30,margin:10}} source={{uri:image}}></Image>
     <View >
         <Text style={{fontWeight:'500'}}>{name}</Text>

@@ -15,6 +15,7 @@ import Settings from './src/screens/Settings';
 import TopMenuWithVerticalList from './src/screens/TopMenuWithVerticalList';
 import Answer from './src/screens/Answer';
 import Certificates from './src/screens/Certificates';
+import EditWeeklyGoal from './src/screens/EditWeeklyGoal';
 
 const Stack = createNativeStackNavigator()
 
@@ -47,6 +48,7 @@ export default function App() {
           <Stack.Screen name='Topics' component={Topics} />
           <Stack.Screen name='Notifications' component={Notifications} />
           <Stack.Screen name='Profile' component={Profile} initialParams={{setShowMenu:setShowMenu}}/>
+          <Stack.Screen name='EditWeeklyGoal' component={EditWeeklyGoal} initialParams={{setShowMenu:setShowMenu}}/>
           <Stack.Screen name='Settings' component={Settings} initialParams={{setShowMenu:setShowMenu}}/>
           <Stack.Screen name='Answer' component={Answer} />
           <Stack.Screen name='Certificates' component={Certificates} />

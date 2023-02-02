@@ -7,7 +7,7 @@ import { useRef } from 'react'
 const Slider=(props)=>
 <View style={{backgroundColor:'lightblue'}}>
 <FlatList horizontal data={props.arr} renderItem={(ele)=>
-            <TouchableOpacity style={styles.container} >
+            <TouchableOpacity style={styles.container} onPress={()=>props.nav.navigate('Course',{data:ele.item})}>
                 <ImageBackground style={{height:'100%',width:'100%',borderRadius:10,}} source={{uri:ele.item.image}}>
                 <View style={{padding:5,backgroundColor:'white',width:'20%',borderRadius:5}}><Text style={{fontSize:10}}>New</Text></View>
                 <Text style={styles.heading}>{ele.item.name}</Text>
@@ -24,7 +24,7 @@ const Home = (props) => {
   return (
     <View>
       <ScrollView ref={ref} >
-      <Slider arr={newCoursesArr} />
+      <Slider arr={newCoursesArr} nav={props.navigation}/>
       <List arr={topPicksArr} showSeeAll={false} heading={'Top Picks for BSC'}></List>
       <List arr={bcozOfSkillsUFollowArr} showSeeAll={false} heading={'Because of skills you follow'}></List>
       <List arr={thisWeeksTopCoursesArr} showSeeAll={false} heading={"This week's top courses"}></List>
