@@ -7,7 +7,7 @@ const QnA_Card = ({item,enableNavigation}) => {
     //enableNavigation is true if the QnA_Card is called from QnA page in Course page, bcoz we need to navigate to Answer page
     // false if it is of Answer Page, bcoz we dont need to navigate to Answer page
     const {image,name,time,description,question,fromTheVideo,noOfAnswers,noOfLikes}=item
-    const [showModal,setShowModal]=useState(false)
+    const [showQModal,setShowQModal]=useState(false)
     const [like,setLike]=useState(false)
     const [showMore,setShowMore]=useState(false)
     const nav=useNavigation()
@@ -17,11 +17,11 @@ const QnA_Card = ({item,enableNavigation}) => {
         setShowMore(true)
     },[])
     useEffect(()=>{
-        console.log('showModal set to ',showModal)
-    },[showModal])
+        console.log('showQModal set to ',showQModal)
+    },[showQModal])
   return (
     <View style={{borderBottomColor:'lightgrey',borderBottomWidth:10,paddingTop:15}}>
-    {showModal && <Qmodal setShowModal={setShowModal} />}
+    {showQModal && <Qmodal setShowQModal={setShowQModal} />}
 
     <TouchableOpacity style={[{alignItems:'center'},styles.container]} onPress={()=>Linking.openURL('https://linkedin.com')}>
     <Image style={{height:45,width:45,borderRadius:30,margin:10}} source={{uri:image}}></Image>
@@ -30,7 +30,7 @@ const QnA_Card = ({item,enableNavigation}) => {
         <Text style={{color:'grey'}}>{description.substring(0,35)}...</Text>
         <Text style={{color:'grey',fontSize:12}}>{time}</Text>
     </View>
-    <TouchableOpacity onPress={()=>setShowModal(true)} style={{marginLeft:'auto'}}>
+    <TouchableOpacity onPress={()=>setShowQModal(true)} style={{marginLeft:'auto'}}>
     <Image style={{height:30,width:30}} source={{uri:'https://cdn-icons-png.flaticon.com/128/4947/4947596.png'}}></Image>
     </TouchableOpacity>
     </TouchableOpacity>

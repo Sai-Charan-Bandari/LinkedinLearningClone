@@ -8,7 +8,8 @@ import Overview from './Overview';
 import CourseTopMenu from './CourseTopMenu';
 import QnA from './QnA';
 // import Video from 'react-native-video';
-import { Video, AVPlaybackStatus} from 'expo-av'
+import { Video, AVPlaybackStatus,Audio} from 'expo-av'
+import CourseIconButtons from './CourseIconButtons';
 
 // const data=useRoute().params //same as useParams in react
 
@@ -18,6 +19,34 @@ const Course = (props) => {
   
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
+  const [sound, setSound] = React.useState();
+
+  const [showVidOrAud,setShowVidOrAud] = useState(true)
+
+  async function playSound() {
+    console.log('Loading Sound');
+    // for locally stored audio files
+    // const { sound } = await Audio.Sound.createAsync( require('./assets/Hello.mp3'));
+    // for url audio files
+    const { sound } = await Audio.Sound.createAsync({uri:'https://www.learnoutloud.com/samples/3489/Discovering%20the%20Philosopher%20in%20You.mp3'});
+    setSound(sound);
+
+    console.log('Playing Sound');
+    await sound.playAsync();
+  }
+
+  const pauseAudio = async () => {
+    await sound.pauseAsync()
+   };
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
 
   //when i kept this statement within useEffect ..it didnt work indicating that the render occurred before the useEffect was called
   const data=props.route.params.data
@@ -55,7 +84,7 @@ const Course = (props) => {
     // 2:// contents
     // 3:// q+a
     
-    const [iconCheckBoxes,setIconCheckBoxes]=useState({like:false,save:false})
+   
 
   return (
   
@@ -63,13 +92,14 @@ const Course = (props) => {
 
         {/* Video */}
 
-        {/* i placed the top menu beneath the Image bcoz.. 
+        {/* i placed the top menu beneath the Video bcoz.. 
         the top menu's position is absolute and needs to be displayed on top of the image tag(video).
-        if the menu is written above Image comp then it is found that the Image comp got rendered on top of the menu
-        so i wrote Image 1st, then the menu comp */} 
-        {/* <Image style={{height:280,width:'100%'}} source={{uri:data.image}}></Image> */}
+        if the menu is written above Video comp then it is found that the Video comp got rendered on top of the menu
+        so i wrote Video 1st, then the menu comp */} 
+        
 
        {/* VIDEO */}
+       {showVidOrAud &&
         <View >
       <Video
         ref={video}
@@ -82,7 +112,7 @@ const Course = (props) => {
         isLooping
         onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
-      {/* PLAY BUTTON */}
+      {/* PLAY BUTTON FOR VIDEO*/}
       {/* <View style={styles.buttons}>
         <Button
           title={status.isPlaying ? 'Pause' : 'Play'}
@@ -92,48 +122,27 @@ const Course = (props) => {
         />
       </View> */}
     </View>
+}
 
+      {/* PLAY BUTTON FOR AUDIO */}
+    {!showVidOrAud &&
+    <View style={{borderWidth:1,borderColor:'black',height:240}}>
+    <Image style={{height:240,width:'100%'}} source={{uri:data.image}}></Image>
+    <View style={[{position:'relative',bottom:45},styles.container]}>
+      <Button title={false ? "Pause audio" :"Play audio"} onPress={playSound} /> 
+      <Button title={true ? "Pause audio" :"Play audio"} onPress={pauseAudio} /> 
+    </View>
+    </View>  
+      }
 
        {/* TOP MENU FOR COURSE COMP */}
-       <CourseTopMenu />
+       <CourseTopMenu setShowVidOrAud={setShowVidOrAud}/>
 
+       <Text style={{fontWeight:'500',fontSize:17,marginVertical:5,marginLeft:25}}>{data.name}</Text>
+       {/* ICON CHECKBOXES VIEW FOR COURSE COMP */}
+      <CourseIconButtons />
 
-      <Text style={{fontWeight:'500',fontSize:17,alignSelf:'center'}}>{data.name}</Text>
-      <View style={styles.container}>
-        
-        {/* <CheckBoxES></CheckBoxES> */}
-        <TouchableOpacity onPress={()=>setIconCheckBoxes({...iconCheckBoxes,like:!iconCheckBoxes['like']})}>
-          {/* i used transform property in Image style attr to invert the image horizontally*/}
-        {iconCheckBoxes.like ? <Image style={{marginLeft:10,width:20,height:20,alignSelf:'center',transform: [{ scaleX: -1 }]}} source={{uri:"https://cdn-icons-png.flaticon.com/128/4926/4926585.png"}} />
-              : <Image style={{marginLeft:10,width:20,height:20,alignSelf:'center',transform: [{ scaleX: -1 }]}} source={{uri:"https://cdn-icons-png.flaticon.com/128/739/739282.png"}} />}
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>setIconCheckBoxes({...iconCheckBoxes,save:!iconCheckBoxes['save']})}>
-        {iconCheckBoxes.save ? <Image style={{marginLeft:10,width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/892/892337.png"}} />
-              : <Image style={{marginLeft:10,width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/709/709496.png"}} />}
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>Alert.alert('Share this course','',[{text:'Share'}])}>
-        <Image style={{marginLeft:10,width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/2958/2958783.png"}} />
-        </TouchableOpacity>
-              {/* END OF <CheckBoxES></CheckBoxES> */}
-        
-
-        <TouchableOpacity style={{display:'flex',flexDirection:'row',marginLeft:10}} onPress={()=>{
-           Alert.alert('Download Entire Course', 'This course contains 49 videos. Would you like to continue?', 
-           [
-            {
-              text: 'CANCEL',
-              onPress: () => console.log('Cancel Pressed'),
-              style: 'cancel',
-            },
-            {text: 'DOWNLOAD NOW', onPress: () => console.log('DOWNLOAD Pressed')},
-          ]);
-        }}>
-            <Text>Download course</Text>
-            <Image style={{marginLeft:25,width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/2926/2926214.png"}} />
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.container}>
+      <View style={[{marginBottom:10},styles.container]}>
         {/* in the backgroundColor attr of TouchableOpacity i had to use string literals `${}` bcoz normal braces {} do not work there */}
       <TouchableOpacity style={{paddingBottom:'1%',backgroundColor:`${(menu==1) ? 'blue' : 'whitesmoke'}`}} onPress={()=>{setMenu(1)}}>
             <Text style={{backgroundColor:'whitesmoke'}}>OVERVIEW</Text>

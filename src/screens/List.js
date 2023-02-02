@@ -62,7 +62,7 @@ const List = (props) => {
 
   return (
       <View style={styles.list}>
-        <MyModal modalVisible={modalVisible} setModalVisible={setModalVisible} modalData={modalData} />
+       {modalVisible && <MyModal modalVisible={modalVisible} setModalVisible={setModalVisible} modalData={modalData} />}
        
 
       <View style={styles.container}>

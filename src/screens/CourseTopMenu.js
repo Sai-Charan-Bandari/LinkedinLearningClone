@@ -2,7 +2,7 @@ import { StyleSheet, Text, View,Switch,TouchableOpacity,Image,Modal } from 'reac
 import React ,{useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 
-const CourseTopMenu = () => {
+const CourseTopMenu = ({setShowVidOrAud}) => {
     const nav=useNavigation()
     const [switchVal,setSwitchVal]=useState(false)
     const [showModal,setShowModal]=useState(false)
@@ -15,7 +15,14 @@ const CourseTopMenu = () => {
     </TouchableOpacity>
     <TouchableOpacity style={[{marginLeft:'auto'},styles.container]} onPress={()=>setSwitchVal(!switchVal)}>
     <Text style={{color:'white'}}>Audio only</Text>
-    <Switch style={{borderColor:'black',borderWidth:2,height:25}} onValueChange={()=>setSwitchVal(!switchVal)} value={switchVal}/>
+    <Switch style={{borderColor:'black',borderWidth:2,height:25}} onValueChange={()=>{
+        if(switchVal){ //if switchVal is true then it will be changed to false and we will show the video
+            setShowVidOrAud(true)
+        }else{ //else if switchVal is false then it will be changed to true and we will show the audio button
+            setShowVidOrAud(false)
+        }
+        setSwitchVal(!switchVal)
+        }} value={switchVal}/>
     </TouchableOpacity>
     <TouchableOpacity style={{marginRight:10}} onPress={()=>setShowModal(true)}>
       <Image style={{height:20,width:20}} source={{uri:"https://cdn-icons-png.flaticon.com/128/482/482620.png"}}></Image>

@@ -3,11 +3,11 @@ import { StyleSheet, Text, View,Switch,TouchableOpacity,Image,Modal ,Linking,Fla
 import QnA_Array from '../data/QnA_Array'
 import QnA_Card from './QnA_Card'
 
-const Qmodal=({setShowModal})=>{
+const Qmodal=({setShowQModal})=>{
     return(
         <Modal animationType='fade' transparent={true}>
             {/* <TouchableOpacity style={{width:'100%',height:'100%'}} onPress={}> */}
-            <TouchableOpacity  onPress={setShowModal(false)}>
+            <TouchableOpacity  onPress={setShowQModal(false)}>
                 <View style={{backgroundColor:'white'}}>
                     <TouchableOpacity style={styles.container}>
                     <Image style={{height:30,width:30}} source={{uri:'https://cdn-icons-png.flaticon.com/128/2814/2814368.png'}}></Image>

@@ -13,19 +13,19 @@ const Overview = ({data}) => {
       <TouchableOpacity onPress={()=>setShowFullDesc(!showFullDesc)}>
         <Image style={{width:20,height:20,alignSelf:'center'}} source={{uri:showFullDesc ? "https://cdn-icons-png.flaticon.com/128/60/60799.png" : "https://cdn-icons-png.flaticon.com/128/32/32195.png"}} />
         </TouchableOpacity>
-        <Text style={{borderTopWidth:1,width:'95%',borderColor:'black'}}>Related to this content</Text>
+        <Text style={{borderTopWidth:1,width:'95%',borderColor:'black',color:'grey',paddingTop:5}}>Related to this content</Text>
 
-        <View style={styles.container}>
+        <View style={[styles.container,{marginVertical:5}]}>
         <Image style={{marginLeft:10,width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/2958/2958783.png"}} />
-          <Text >Learning Groups</Text>
+          <Text style={{marginHorizontal:10,fontWeight:'500',fontSize:16}}>Learning Groups</Text>
         <TouchableOpacity onPress={()=>Alert.alert('Share this course','',[{text:'See all'}])}>
           <Text style={{color:'blue'}}>See All</Text>
         </TouchableOpacity>
         </View>
 
-        <View style={styles.container}>
+        <View style={[{marginBottom:5},styles.container]}>
         <Image style={{marginLeft:10,width:20,height:20,alignSelf:'center'}} source={{uri:"https://cdn-icons-png.flaticon.com/128/2958/2958783.png"}} />
-          <Text >Certificates</Text>
+          <Text style={{marginHorizontal:10,fontWeight:'500',fontSize:16}}>Certificates</Text>
         <TouchableOpacity onPress={()=>Alert.alert('Share this course','',[{text:'Share'}])}>
           <Text style={{color:'blue'}}>See All</Text>
         </TouchableOpacity>
@@ -34,8 +34,8 @@ const Overview = ({data}) => {
         <TouchableOpacity style={[{borderTopWidth:1,width:'95%',borderColor:'black'},styles.container]}>
         <Image style={{height:50,width:50,marginTop:10,marginRight:5}} source={{uri:"https://cdn-icons-png.flaticon.com/128/9131/9131529.png"}}></Image>
         <View>
-          <Text>{data.creator}</Text>
-          <Text>Technologist, Artist, Educator</Text>
+          <Text style={{fontWeight:'500',marginTop:5}}>{data.creator}</Text>
+          <Text style={{marginBottom:5}}>Technologist, Artist, Educator</Text>
           <Text style={{color:'blue'}}>View Linkedin Profile</Text>
         </View>
         </TouchableOpacity>
