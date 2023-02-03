@@ -1,12 +1,14 @@
 need to make hiding menubar warnings free
 Contents pg (still need to pass data.contents (course contents) via props) (alt: use accordions)
 #how to place radio buttons in alert ###required for settings page
-#modal for settings page
-#need to update Profile,settings
+#modal for settings page (but changing values in modal doesnot modify selected option in Settings pg)
 #edit page in weekly goal in MyLearning ####even after changing weeklyGoal still re-render does not occur
   //probably a comp re-renders only if a state declared within itself is changed
 #video ,audio (different play,pause buttons)
 #video , audio take time to load
+#declaration: we have used copies of 'predefined sample data arrays' as data for each comp.
+              so changes made to the data in each comp will not actually affect the remaining comps using the same data array
+
 
  CHANGES:
  -ScrollToTop in MenuBar for Home and MyLearning
