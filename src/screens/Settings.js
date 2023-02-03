@@ -128,7 +128,7 @@ useEffect(()=>{
       </TouchableOpacity>
 
       <Text style={styles.bluehead}>Downloads</Text>
-      <TouchableOpacity style={{margin:20,}} onPress={()=>nav.navigate('EmptyComp',{name:'Downloaded'})}>
+      <TouchableOpacity style={{margin:20,}} onPress={()=>nav.navigate('Downloaded')}>
       <Text style={styles.blackhead}>View Downloads</Text>
       <Text style={styles.smalltext}>See all your downloaded content</Text>
       </TouchableOpacity>
