@@ -66,7 +66,7 @@ useEffect(()=>{
       <Text  style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque, cumque architecto facere eveniet. Culpa, saepe facilis!</Text>
     <Text style={styles.underlined} onPress={()=>Linking.openURL('https://google.com')}>See more</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}}>
+      <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}} onPress={()=>toggle(0)}>
       <Text style={styles.blackhead}>Sync my learning activity</Text>
       <View style={{display: "flex",flexDirection: "row"}}>
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque, cumque architecto facere eveniet. Culpa, saepe facilis!</Text>
@@ -86,21 +86,21 @@ useEffect(()=>{
       <Text  style={styles.smalltext}>English</Text>
       <Text  style={styles.smalltext}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, aperiam illo omnis voluptatibus officiis deserunt inventore, voluptas eligendi obcaecati est error beatae autem quae ut nesciunt. Asperiores facere eaque rerum et nostrum iste perspiciatis molestiae minima consequatur autem! Asperiores, sequi ab! Voluptates quibusdam voluptatibus non incidunt. Minus cumque hic quaerat.</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{margin:20}}>
+      <TouchableOpacity style={{margin:20}} onPress={()=>toggle(1)}>
       <Text style={styles.blackhead}>Autoplay</Text>
       <View style={{display: "flex",flexDirection: "row"}}>
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
       <Switch value={ switchVal[1]} onValueChange={()=>toggle(1)}></Switch>
       </View>
       </TouchableOpacity>
-      <TouchableOpacity style={{margin:20}}>
+      <TouchableOpacity style={{margin:20}} onPress={()=>toggle(2)}>
       <Text style={styles.blackhead}>Autoplay videos on course preview</Text>
       <View style={{display: "flex",flexDirection: "row"}}>
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
       <Switch value={ switchVal[2]} onValueChange={()=>toggle(2)}></Switch>
       </View>
       </TouchableOpacity>
-      <TouchableOpacity style={{margin:20}}>
+      <TouchableOpacity style={{margin:20}} onPress={()=>toggle(3)}>
       <Text style={styles.blackhead}>Background Play</Text>
       <View style={{display: "flex",flexDirection: "row"}}>
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni </Text>
@@ -118,7 +118,7 @@ useEffect(()=>{
       </TouchableOpacity>
 
       <Text style={styles.bluehead}>Social</Text>
-      <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}}>
+      <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}} onPress={()=>toggle(4)}>
       <Text style={styles.blackhead}>Social</Text>
       <View style={{display: "flex",flexDirection: "row"}}>
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque,</Text>
@@ -128,7 +128,7 @@ useEffect(()=>{
       </TouchableOpacity>
 
       <Text style={styles.bluehead}>Downloads</Text>
-      <TouchableOpacity style={{margin:20,}}>
+      <TouchableOpacity style={{margin:20,}} onPress={()=>nav.navigate('EmptyComp',{name:'Downloaded'})}>
       <Text style={styles.blackhead}>View Downloads</Text>
       <Text style={styles.smalltext}>See all your downloaded content</Text>
       </TouchableOpacity>
@@ -140,7 +140,7 @@ useEffect(()=>{
       <Text style={styles.blackhead}>Downloads Quality</Text>
       <Text style={styles.smalltext}>Medium</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{display: "flex",flexDirection: "row",marginLeft:20}}>
+      <TouchableOpacity style={{display: "flex",flexDirection: "row",marginLeft:20}} onPress={()=>toggle(5)}>
       <Text style={styles.blackhead}>Allow Cellular Downloads</Text>
       <Switch value={ switchVal[5]} onValueChange={()=>toggle(5)}></Switch>
       </TouchableOpacity>
@@ -187,22 +187,22 @@ useEffect(()=>{
       <Text style={styles.blackhead}>Linkedin Learning Version</Text>
       <Text style={styles.smalltext}>0.234.5</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{margin:20,}}>
+      <TouchableOpacity style={{margin:20,}} onPress={()=>nav.navigate('EmptyComp',{name:'Help center'})}>
       <Text style={styles.blackhead}>Help Center</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{margin:20,}}>
+      <TouchableOpacity style={{margin:20,}} onPress={()=>nav.navigate('EmptyComp',{name:'Privacy policy'})}>
       <Text style={styles.blackhead}>Privacy policy</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{margin:20,}}>
+      <TouchableOpacity style={{margin:20,}} onPress={()=>nav.navigate('EmptyComp',{name:'Accessibility'})}>
       <Text style={styles.blackhead}>Accessibility</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{margin:20,}}>
+      <TouchableOpacity style={{margin:20,}} onPress={()=>nav.navigate('EmptyComp',{name:'User agreement'})}>
       <Text style={styles.blackhead}>User agreement</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{margin:20,}}>
+      <TouchableOpacity style={{margin:20,}} onPress={()=>nav.navigate('EmptyComp',{name:'End user agreement'})}>
       <Text style={styles.blackhead}>End user agreement</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{margin:20,}}>
+      <TouchableOpacity style={{margin:20,}} onPress={()=>nav.navigate('EmptyComp',{name:'Additonal terms'})}>
       <Text style={styles.blackhead}>Additional terms</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,}}>

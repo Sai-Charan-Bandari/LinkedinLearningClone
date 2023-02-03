@@ -8,7 +8,7 @@ Contents pg (still need to pass data.contents (course contents) via props) (alt:
 #video , audio take time to load
 #declaration: we have used copies of 'predefined sample data arrays' as data for each comp.
               so changes made to the data in each comp will not actually affect the remaining comps using the same data array
-
+#create downloaded pg from settings comp
 
  CHANGES:
  -ScrollToTop in MenuBar for Home and MyLearning
