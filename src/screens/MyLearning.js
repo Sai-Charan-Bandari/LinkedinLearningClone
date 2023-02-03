@@ -29,21 +29,31 @@ const MyLearning = (props) => {
             </TouchableOpacity>
        
             <View style={styles.container}>
-            <Text style={styles.heading}>Weekly Goal</Text>
+            <Text style={styles.heading}>{weeklyGoal=='NULL' ? 'Set a weekly goal':'Weekly Goal'}</Text>
             <TouchableOpacity style={[styles.seeall]} onPress={()=>props.navigation.navigate('EditWeeklyGoal',{weeklyGoal:weeklyGoal,setWeeklyGoal:setWeeklyGoal})}>
-            <Text style={{color:'blue'}}>{weeklyGoal=='NULL' ? 'SET GOAL' : 'EDIT'}</Text>
+            {weeklyGoal!='NULL'  && <Text style={{color:'blue'}}>EDIT</Text>}
             </TouchableOpacity>
             </View>
 
             <View style={[styles.container,{marginBottom:25}]}>
                 {/* Circular progress bar */}
                <View style={{margin:10,borderWidth:1,paddingTop:10,borderRadius:50,height:80,width:80}}>
+                { weeklyGoal=='NULL'
+                ?
+                <Image style={{width:35,height:35,position:'relative',bottom:3,left:13,top:4,padding:25,borderColor:'black',borderWidth:1,borderRadius:50}} source={{uri:"https://cdn-icons-png.flaticon.com/128/9583/9583697.png"}}></Image>
+                :
                 <Text style={{fontSize:15,fontWeight:'500',position:'relative',bottom:3,left:6,borderWidth:1,paddingTop:20,paddingLeft:10,borderRadius:50,height:65,width:65}}>{weeklyGoal!='NULL' && `0/${weeklyGoal}`}</Text>
+                }
                </View>
                 <View style={{width:'60%'}}>
-                    <Text style={{fontSize:13,fontWeight:'300',marginBottom:5}}>Jan 9 to Jan 15</Text>
-                    <Text>You've got this! Start learning to reach your goal.</Text>
-                    <Text style={{fontSize:13,fontWeight:'300',marginTop:5}}>Last week: 74 minutes</Text>
+                    {weeklyGoal!='NULL' && <Text style={{fontSize:13,fontWeight:'300',marginBottom:5}}>Jan 9 to Jan 15</Text>}
+                    <Text>{weeklyGoal=='NULL' ? "We'll help you track your progress and remind you to keep learning" : "You've got this! Start learning to reach your goal."}</Text>
+                    {weeklyGoal!='NULL' && <Text style={{fontSize:13,fontWeight:'300',marginTop:5}}>Last week: 74 minutes</Text>}
+                    {weeklyGoal=='NULL' && 
+                    <TouchableOpacity style={{borderColor:'#0077b5',borderWidth:1,width:90,marginTop:20}} onPress={()=>props.navigation.navigate('EditWeeklyGoal',{weeklyGoal:weeklyGoal,setWeeklyGoal:setWeeklyGoal})}>
+                        <Text style={{color:'#0077b5',fontWeight:'500',alignSelf:'center'}}>SET GOAL</Text>
+                    </TouchableOpacity>
+                    }
                 </View>
             </View>
 
