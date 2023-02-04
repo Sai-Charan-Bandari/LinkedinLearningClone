@@ -1,10 +1,33 @@
 {
   "expo": {
-    "name": "llfront",
+    "name": "Learning2",
     "slug": "llfront",
-    "version": "1.0.0",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "splash":{
+        "backgroundColor":"#000000",
+        "resizeMode": "contain",
+        "image":"./assets/splash.png"
+      }
+    },
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "ab576b17-5cce-4b11-b67c-e060a987f74d"
+      }
+    }
   }
 }

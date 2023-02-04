@@ -64,7 +64,7 @@ useEffect(()=>{
       <TouchableOpacity style={{margin:20}}>
       <Text style={styles.blackhead}>Account type: Enterprise Learning</Text>
       <Text  style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque, cumque architecto facere eveniet. Culpa, saepe facilis!</Text>
-    <Text style={styles.underlined} onPress={()=>Linking.openURL('https://google.com')}>See more</Text>
+    <Text style={styles.underlined} onPress={()=>Linking.openURL('https://github.com/Sai-Charan-Bandari')}>See more</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{margin:20,borderBottomWidth:1,borderColor:'lightgrey'}} onPress={()=>toggle(0)}>
       <Text style={styles.blackhead}>Sync my learning activity</Text>
@@ -72,7 +72,7 @@ useEffect(()=>{
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque, cumque architecto facere eveniet. Culpa, saepe facilis!</Text>
       <Switch value={switchVal[0]} onValueChange={()=>toggle(0)}></Switch>
       </View>
-    <Text style={styles.underlined} onPress={()=>Linking.openURL('https://google.com')}>Learn more</Text>
+    <Text style={styles.underlined} onPress={()=>Linking.openURL('https://github.com/Sai-Charan-Bandari')}>Learn more</Text>
       </TouchableOpacity>
 
       <Text style={styles.bluehead}>Consumption Preferences</Text>
@@ -124,7 +124,7 @@ useEffect(()=>{
       <Text style={styles.smalltext}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe vero magni rem labore laborum hic dignissimos animi, ut libero dolorum fugit autem atque,</Text>
       <Switch value={switchVal[4]} onValueChange={()=>toggle(4)}></Switch>
       </View>
-    <Text style={styles.underlined} onPress={()=>Linking.openURL('https://google.com')}>Learn more</Text>
+    <Text style={styles.underlined} onPress={()=>Linking.openURL('https://github.com/Sai-Charan-Bandari')}>Learn more</Text>
       </TouchableOpacity>
 
       <Text style={styles.bluehead}>Downloads</Text>

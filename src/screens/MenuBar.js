@@ -61,9 +61,10 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         borderTopWidth:1,
         borderColor:'lightblue',
-        
+        justifyContent:'space-evenly',
+        paddingVertical:10
     },
     option:{
-        margin:10,
+        // margin:10,
     }
 })
